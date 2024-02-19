@@ -10,20 +10,10 @@
 }
 
 
-@media (max-width: 1015px) {
-    .menu {
-        display: none;
-    }
-
-    .hamburguer{
-        display: unset;
-        color: white;
-    }
-}
 
 
 .conteudo{
-    width: 80% !important;
+    width: var(--width);
     height: 80px;
     margin: auto;
     display: flex;
@@ -66,4 +56,15 @@
 
 .logo{
     max-width: 200px;
+}
+
+@media (max-width: 1015px) {
+    .menu {
+        display: none;
+    }
+
+    .hamburguer{
+        display: unset;
+        color: white;
+    }
 }

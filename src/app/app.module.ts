@@ -11,6 +11,7 @@ import { FavorecidoComponent } from './componentes/favorecido/favorecido.compone
 import { MenuSuperiorComponent } from './componentes/menu-superior/menu-superior.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { CadastroComponent } from './componentes/cadastro/cadastro.component';
+import { ContatoComponent } from './componentes/contato/contato.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CadastroComponent } from './componentes/cadastro/cadastro.component';
     FavorecidoComponent,
     MenuSuperiorComponent,
     HomeComponent,
-    CadastroComponent
+    CadastroComponent,
+    ContatoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,70 @@
+.bloco{
+    background-color: #080C22 ;
+}
+
+.conteudo{
+    display: flex;
+    justify-content: space-between;
+    width: var(--width);
+    margin: auto;
+    color: white;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.bloco-esquerda{
+    width: 50%;
+}
+
+.bloco-direita{
+    width: 40%;
+}
+
+.bloco-esquerda h1{
+    font-size: 38px;
+    line-height: 47px;
+    margin-bottom: 15px;
+}
+
+.bloco-esquerda p{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
+    margin-bottom: 30px;
+}
+
+.bloco-direita input, textarea{
+    width: 100%;
+    border: 0.7px solid #474A5B;
+    background-color: #06091C;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.bloco-direita form div{
+    display: flex;
+    gap: 15px;
+}
+
+button{
+    width: 100%;
+    background: #C8AE7B;
+    border-radius: 6px;
+    padding: 11px 20px 11px 20px;
+}
+
+.mensagem{
+    height: 100px;
+    resize: none;
+}
+
+.bloco-esquerda span{
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.preocupe{
+    color: #C8AE7B;
+}
