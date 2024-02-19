@@ -4,10 +4,11 @@
     justify-content: space-between;
     width: 80%;
     margin: auto;
+    align-items: center;
 }
 
 .titulo{
-    font-size: 40px;
+    font-size: 38px;
     font-family: roboto;
     margin-bottom: 15px;
 }
@@ -19,9 +20,14 @@ p{
     margin-bottom: 15px;
 }
 
+.texto{
+    width: 50%;
+}
+
+
 .foto{
-    width: 592px;
-    height: 539px;
     margin-top: 20px;
+    width: 40%;
+    min-width: 340px;
     justify-content: space-around;
 }
