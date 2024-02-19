@@ -4,6 +4,24 @@
 
 }
 
+.hamburguer{
+    color: white;
+    display: none;
+}
+
+
+@media (max-width: 1015px) {
+    .menu {
+        display: none;
+    }
+
+    .hamburguer{
+        display: unset;
+        color: white;
+    }
+}
+
+
 .conteudo{
     width: 80% !important;
     height: 80px;

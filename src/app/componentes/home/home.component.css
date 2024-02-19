@@ -123,6 +123,7 @@
 
 .conteudo-servicos{
     background-color: #FFFFFF;
+    margin-bottom: 100px;
 }
 
 .servico{
@@ -135,6 +136,7 @@
     text-align: center;
     width: var(--width);
     margin: auto;
+    margin-bottom: 20px;
 }
 
 .servicos h1{
@@ -150,15 +152,18 @@
 }
 
 .cartas-personalizadas{
-    width: 25vw; /* 30% da largura da viewport */
-    height: 36vw; /* 36% da largura da viewport */
-    max-height: 436px; /* Máximo de 436px */
+    width: 25vw; 
+    height: 36vw; 
+    max-height: 436px; 
     background-image: 
     linear-gradient(180.04deg, rgba(0, 0, 0, 0) 36.72%, rgba(0, 0, 0, 0.96) 99.97%),
     url('\src\assets\imagens\fundo_cartas.png');
     background-position: center;
     background-size: cover;
     color: white;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
 }
 
 .blocos{
@@ -173,7 +178,6 @@
 }
 
 .formacao{
-    background-color: aqua;
     width: 25vw; /* 40% da largura da viewport */
     margin-right: 1vw; /* Espaçamento de 1% da largura da viewport */
     margin-bottom: 1vw; /* Espaçamento de 1% da largura da viewport */
@@ -183,10 +187,12 @@
     background-position: center;
     background-size: cover;
     color: white;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
 }
 
 .intermediacao{
-    background-color: blue;
     width: 80%; 
     margin-bottom: 1vw; 
     background-image: 
@@ -195,6 +201,9 @@
     background-position: center;
     background-size: cover;
     color: white;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
 }
 
 .negocios {
@@ -206,11 +215,13 @@
     background-position: center;
     background-size: cover;
     color: white;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
 }
 
 
 .consultoria{
-    background-color: #080C22;
     width: 60%; 
     background-image: 
     linear-gradient(180.04deg, rgba(0, 0, 0, 0) 36.72%, rgba(0, 0, 0, 0.96) 99.97%),
@@ -218,4 +229,63 @@
     background-position: center;
     background-size: cover;
     color: white;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+}
+
+.cartas-personalizadas, .formacao, .intermediacao, .negocios, .consultoria{
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+.cartas-personalizadas p, .formacao p, .intermediacao p, .negocios p, .consultoria p{
+    padding: 10px;
+}
+
+
+@media (max-width: 1015px) {
+
+   .conteudo{
+    background-position: center ;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 270px;
+    text-align: center;
+   }
+
+   .servicos{
+    text-align: unset;
+    margin: unset;
+    width: 100%;
+    margin-bottom: 20px;
+   }
+
+   .titulo h1, .quantidade h1{
+    font-size: 32px;
+    line-height: 40px;
+   }
+
+   .quantidades{
+    display: flex;
+    gap: 30px;
+   }
+
+   .informacoes{
+    flex-direction: column-reverse;
+   }
+
+   .blocos, .topo , .inferior{
+    display: block;
+   }
+
+   .cartas-personalizadas, .formacao, .intermediacao, .negocios, .consultoria{
+    width: 100%;
+    height: 280px;
+   }
+
+   .blocos > div, .blocos > div > div > div{
+    margin-bottom: 20px;
+   }
 }
