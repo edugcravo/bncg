@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FavorecidoComponent } from './componentes/favorecido/favorecido.component';
 import { MenuSuperiorComponent } from './componentes/menu-superior/menu-superior.component';
 import { HomeComponent } from './componentes/home/home.component';
+import { CadastroComponent } from './componentes/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './componentes/home/home.component';
     LoginComponent,
     FavorecidoComponent,
     MenuSuperiorComponent,
-    HomeComponent
+    HomeComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,

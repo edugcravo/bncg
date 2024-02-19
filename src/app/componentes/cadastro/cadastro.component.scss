@@ -1,0 +1,27 @@
+.conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+
+.titulo{
+    font-size: 40px;
+    font-family: roboto;
+    margin-bottom: 15px;
+}
+
+p{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
+    margin-bottom: 15px;
+}
+
+.foto{
+    width: 592px;
+    height: 539px;
+    margin-top: 20px;
+    justify-content: space-around;
+}
