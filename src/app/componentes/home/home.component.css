@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@200..900&display=swap');
+
+.container{
+    background-color: #080C22;
+    max-width: unset !important;
+}
+
+.conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url('\src\assets\imagens\fundo_degrade.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-size: 80%; */
+    height: 100vh;
+    margin-top: -81px;
+
+  }
+
+  .borda{
+    width: 100%;
+    height: 1px;
+    border-top: 0.4px solid #D8D8D8;
+    position: relative;
+    z-index: 1;
+  }
+
+.titulo{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 56px;
+    max-width: 550px;
+
+    color: #FFFFFF;
+
+}
+
+.titulo p{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
+    margin-top: 15px;
+}
+
+.titulo span{
+    font-weight: 700;
+}
+
+.quantidades{
+    margin-top: 50px;
+}
+
+.quantidade{
+    margin-bottom: 20px;
+}
+
+.quantidade h1{
+    color: #C8AE7B;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 60px;
+    font-family: "Noto Serif HK", serif;
+
+}
+
+.quantidade p{
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+
+}
+
+.falar{
+
+    padding: 11px 20px 11px 20px;
+    background-color:  #C8AE7B;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+
+}
+
+.conteudo-informacoes{
+    background-color: #F6F6F6;
+}
+
+.informacoes{
+    display: flex;
+    justify-content: space-between; 
+    width: var(--width);
+    margin: auto;
+}
+
+.informacoes h1{
+    font-size: 38px;
+    line-height: 47px;
+    margin-bottom: 16px;
+}
+
+.texto-info span {
+    font-weight: 700;
+}
+
+.informacoes p{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
+
+}
+
+.texto-info{
+    max-width: 530px;
+}
+
+.informacoes{
+    padding-top: 100px;
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+.conteudo-servicos{
+    background-color: #FFFFFF;
+}
+
+.servico{
+    width: var(--width);
+    margin: auto;
+}
+
+.servicos{
+    padding-top: 100px;
+    text-align: center;
+    width: var(--width);
+    margin: auto;
+}
+
+.servicos h1{
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 47px;
+}
+
+.servicos p{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
+}
+
+.cartas-personalizadas{
+    width: 25vw; /* 30% da largura da viewport */
+    height: 36vw; /* 36% da largura da viewport */
+    max-width: 357px; /* Máximo de 357px */
+    max-height: 436px; /* Máximo de 436px */
+    background-color: red;
+}
+
+.blocos{
+    display: flex;
+    gap: 1vw; /* Espaçamento de 1% da largura da viewport */
+}
+
+.topo, .inferior {
+    height: 50%;  
+    display: flex;
+}
+
+.formacao{
+    background-color: aqua;
+    width: 25vw; /* 40% da largura da viewport */
+    max-width: 386px; /* Máximo de 386px */
+    margin-right: 1vw; /* Espaçamento de 1% da largura da viewport */
+    margin-bottom: 1vw; /* Espaçamento de 1% da largura da viewport */
+}
+
+.intermediacao{
+    background-color: blue;
+    width: 80%; /* 45% da largura da viewport */
+    max-width: 441px; /* Máximo de 441px */
+    margin-bottom: 1vw; /* Espaçamento de 1% da largura da viewport */
+}
+
+.negocios{
+    background-color: #C8AE7B;
+    width: 34vw; /* 44% da largura da viewport */
+    max-width: 440px; /* Máximo de 440px */
+    margin-right: 1vw; /* Espaçamento de 1% da largura da viewport */
+}
+
+.consultoria{
+    background-color: #080C22;
+    width: 60%; /* 40% da largura da viewport */
+    max-width: 386px; /* Máximo de 386px */
+}

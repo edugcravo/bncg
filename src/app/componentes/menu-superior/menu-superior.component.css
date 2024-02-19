@@ -1,0 +1,51 @@
+.container{
+    background-color: #080C22;
+    max-width: unset !important;
+
+}
+
+.conteudo{
+    width: 80% !important;
+    height: 80px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.menu ul li{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.menu ul{
+    display: flex;
+    gap: 24px;
+}
+
+.conta{
+    background: #C8AE7B;
+    color: #FFFFFF;
+    padding: 6px 13px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.fale{
+    border: 1px solid #C8AE7B;
+    color: #C8AE7B;
+    padding: 6px 13px;
+}
+
+.logo{
+    max-width: 200px;
+}
