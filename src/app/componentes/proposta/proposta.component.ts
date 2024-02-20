@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CartaService } from 'src/app/services/carta.service';
 
 @Component({
   selector: 'app-proposta',
@@ -10,7 +11,7 @@ export class PropostaComponent implements OnInit {
 
   formGroup!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private cartaService: CartaService) { }
 
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
@@ -36,7 +37,9 @@ export class PropostaComponent implements OnInit {
     console.log(this.formGroup.value);
     if (this.formGroup.valid) {
       // Lógica para enviar os dados do formulário
-      console.log(this.formGroup.value);
+      this.cartaService.enviaCarta(this.formGroup.value).subscribe((data: any) => {
+        console.log(data);
+      });
     }
   }
 }
