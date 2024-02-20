@@ -26,7 +26,12 @@ export class LoginComponent implements OnInit {
       console.log(this.formulario.value);
       this.loginService.login(this.formulario.value).then((data: any) => {
         console.log(data);
-        this.router.navigate(['/favorecido']);
+        if(data.token){
+          this.router.navigate(['/favorecido']);
+        }else{
+          return
+        }
+
       })
     } else {
       // Marque os campos como tocados para exibir os erros

@@ -5,6 +5,8 @@
     width: var(--width);
     margin: auto;
     align-items: center;
+    margin-top: 35px;
+    margin-bottom: 100px;
 }
 
 .titulo{
@@ -30,4 +32,23 @@ p{
     width: 40%;
     min-width: 340px;
     justify-content: space-around;
+}
+
+select{
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    height: 46px;
+}
+
+.download{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.download button{
+    padding: 11px 17px;
+    background-color: #080C22;
+    color: white;
 }

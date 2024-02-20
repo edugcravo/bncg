@@ -5,6 +5,7 @@ import { FavorecidoComponent } from './componentes/favorecido/favorecido.compone
 import { MenuSuperiorComponent } from './componentes/menu-superior/menu-superior.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { CadastroComponent } from './componentes/cadastro/cadastro.component';
+import { ContatoComponent } from './componentes/contato/contato.component';
 
 
 
@@ -14,7 +15,7 @@ const APP_ROUTES: Routes = [
   { path: 'favorecido', component: FavorecidoComponent},
   { path: 'menu', component: MenuSuperiorComponent},
   { path: 'home', component: HomeComponent},
-  { path: 'cadastro', component: CadastroComponent}
+  { path: 'cadastro', component: CadastroComponent},
   
 
 ];

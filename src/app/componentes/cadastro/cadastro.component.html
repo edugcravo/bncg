@@ -3,19 +3,31 @@
 <div class="conteudo">
 
     <div class="texto">
-        <h1 class="titulo" >Relação de documentos <br> para <strong> cadastro </strong> </h1>
+        <h1 class="titulo" >Relação de documentos  para <strong> cadastro </strong> </h1>
 
-        <p> &bull; Fichas cadastrais pessoa física e jurídica (devidamente <br>
+        <p> &bull; Fichas cadastrais pessoa física e jurídica (devidamente
         preenchidas e assinadas) </p>
 
         <p> &bull; Contrato Social e suas alterações</p>
 
-        <p> &bull; Balanços encerrados em 2011, 2012 e 2013, devidamente assinados <br>
+        <p> &bull; Balanços encerrados em 2011, 2012 e 2013, devidamente assinados 
         pelo contador e pelo representante legal da empresa </p>
 
-        <p> &bull; Demonstrações do Resultado do Exercício (DRE) de 2011, 2012 e 2013 <br>
-        devidamente assinados pelo contador e pelo representante legal da <br>
+        <p> &bull; Demonstrações do Resultado do Exercício (DRE) de 2011, 2012 e 2013 
+        devidamente assinados pelo contador e pelo representante legal da 
         empresa </p> 
+
+        <div class="download">
+            <select [(ngModel)]="tipo" required>
+                <option value="" disabled selected>Selecione uma opção</option>
+                <option value="pf">Ficha de cadastro para Pessoa Física</option>
+                <option value="pj">Ficha de cadastro para Pessoa Jurídica</option>
+                <option value="obra">Quadro de obras e serviços em execução</option>
+            </select>
+            
+            <button (click)="fazerDownload()">Fazer download</button>
+        </div>
+
     </div>
 
     <div class="foto">
@@ -23,3 +35,7 @@
     </div>
 
 </div>
+
+<app-contato></app-contato>
+
+<app-rodape></app-rodape>

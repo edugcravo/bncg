@@ -68,3 +68,19 @@ button{
 .preocupe{
     color: #C8AE7B;
 }
+
+
+@media (max-width: 1015px) {
+
+    .conteudo{
+        flex-direction: column;
+    }
+
+    .bloco-esquerda, .bloco-direita{
+        width: unset;
+    }
+
+    .preocupe{
+        font-size: 12px;
+    }
+}

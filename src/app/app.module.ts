@@ -12,6 +12,7 @@ import { MenuSuperiorComponent } from './componentes/menu-superior/menu-superior
 import { HomeComponent } from './componentes/home/home.component';
 import { CadastroComponent } from './componentes/cadastro/cadastro.component';
 import { ContatoComponent } from './componentes/contato/contato.component';
+import { RodapeComponent } from './componentes/rodape/rodape.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContatoComponent } from './componentes/contato/contato.component';
     MenuSuperiorComponent,
     HomeComponent,
     CadastroComponent,
-    ContatoComponent
+    ContatoComponent,
+    RodapeComponent
   ],
   imports: [
     BrowserModule,
