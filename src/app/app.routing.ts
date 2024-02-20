@@ -7,6 +7,7 @@ import { HomeComponent } from './componentes/home/home.component';
 import { CadastroComponent } from './componentes/cadastro/cadastro.component';
 import { ContatoComponent } from './componentes/contato/contato.component';
 import { PropostaComponent } from './componentes/proposta/proposta.component';
+import { PinComponent } from './componentes/pin/pin.component';
 
 
 
@@ -18,6 +19,7 @@ const APP_ROUTES: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'cadastro', component: CadastroComponent},
   { path: 'proposta', component: PropostaComponent},
+  { path: 'pin', component: PinComponent},
 
 
 ];

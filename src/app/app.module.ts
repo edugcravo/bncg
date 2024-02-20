@@ -14,6 +14,7 @@ import { CadastroComponent } from './componentes/cadastro/cadastro.component';
 import { ContatoComponent } from './componentes/contato/contato.component';
 import { RodapeComponent } from './componentes/rodape/rodape.component';
 import { PropostaComponent } from './componentes/proposta/proposta.component';
+import { PinComponent } from './componentes/pin/pin.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PropostaComponent } from './componentes/proposta/proposta.component';
     CadastroComponent,
     ContatoComponent,
     RodapeComponent,
-    PropostaComponent
+    PropostaComponent,
+    PinComponent
   ],
   imports: [
     BrowserModule,
