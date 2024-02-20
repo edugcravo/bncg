@@ -6,6 +6,7 @@ import { MenuSuperiorComponent } from './componentes/menu-superior/menu-superior
 import { HomeComponent } from './componentes/home/home.component';
 import { CadastroComponent } from './componentes/cadastro/cadastro.component';
 import { ContatoComponent } from './componentes/contato/contato.component';
+import { PropostaComponent } from './componentes/proposta/proposta.component';
 
 
 
@@ -16,7 +17,8 @@ const APP_ROUTES: Routes = [
   { path: 'menu', component: MenuSuperiorComponent},
   { path: 'home', component: HomeComponent},
   { path: 'cadastro', component: CadastroComponent},
-  
+  { path: 'proposta', component: PropostaComponent},
+
 
 ];
 

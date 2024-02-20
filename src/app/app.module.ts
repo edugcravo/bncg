@@ -13,6 +13,7 @@ import { HomeComponent } from './componentes/home/home.component';
 import { CadastroComponent } from './componentes/cadastro/cadastro.component';
 import { ContatoComponent } from './componentes/contato/contato.component';
 import { RodapeComponent } from './componentes/rodape/rodape.component';
+import { PropostaComponent } from './componentes/proposta/proposta.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RodapeComponent } from './componentes/rodape/rodape.component';
     HomeComponent,
     CadastroComponent,
     ContatoComponent,
-    RodapeComponent
+    RodapeComponent,
+    PropostaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="conteudo">
+    <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
+
+      <div class="emitente">
+        <label>Escolha o emitente:</label>
+        <select formControlName="emitente">
+          <option value="Banco">Banco</option>
+          <option value="Seguradora">Seguradora</option>
+          <option value="Fiador">Fiador</option>
+        </select>
+      </div>
+
+      <div class="favorecido">
+        <label>Escolha o favorecido:</label>
+        <select formControlName="favorecido">
+          <option value="Banco">Banco</option>
+          <option value="Seguradora">Seguradora</option>
+          <option value="Fiador">Fiador</option>
+        </select>
+      </div>
+
+      <div class="numero">
+        <label>Número do documento:</label>
+        <input type="text" formControlName="numeroDocumento">
+      </div>
+
+      <div class="valor">
+        <label>Valor em R$:</label>
+        <input type="text" formControlName="valor">
+      </div>
+
+      <div class="extenso">
+        <label>Valor por extenso:</label>
+        <input type="text" formControlName="valorExtenso">
+      </div>
+
+      <div class="dataInicio">
+        <label>Data de início:</label>
+        <input type="date" formControlName="dataInicio">
+      </div>
+
+      <div class="dataFinalizacao">
+        <label>Data de finalização:</label>
+        <input type="date" formControlName="dataFinalizacao">
+      </div>
+
+      <div class="dataEmissao">
+        <label>Data de emissão:</label>
+        <input type="date" formControlName="dataEmissao">
+      </div>
+
+      <div class="valorCobrado">
+        <label>Valor cobrado:</label>
+        <input type="text" formControlName="valorCobrado">
+      </div>
+
+      <div class="vencimento">
+        <label>Vencimento:</label>
+        <input type="date" formControlName="vencimento">
+      </div>
+
+      <div class="status">
+        <label>Status pagamento:</label>
+        <select formControlName="statusPagamento">
+          <option value="Ativo">Ativo</option>
+          <option value="Inativo">Inativo</option>
+        </select>
+      </div>
+
+      <div class="finalidade">
+        <label>Finalidade do objeto:</label>
+        <input type="text" formControlName="finalidade">
+      </div>
+
+      <div class="finalidadeMeio">
+        <label>Finalidade do Objeto no meio do texto:</label>
+        <input type="text" formControlName="finalidadeMeio">
+      </div>
+
+      <div class="assina">
+        <label>Quem assina a proposta?</label>
+        <input type="text" formControlName="assinaProposta">
+      </div>
+
+      <div class="senha">
+        <label>Senha:</label>
+        <input type="password" formControlName="senha">
+      </div>
+
+      <button type="submit">Enviar</button>
+
+    </form>
+  </div>
+</div>
