@@ -19,4 +19,7 @@ export class MenuSuperiorComponent implements OnInit {
   ngOnInit() {
   }
 
+  redirecionaHome(){
+    this.router.navigate(['/home']);
+  }
 }
