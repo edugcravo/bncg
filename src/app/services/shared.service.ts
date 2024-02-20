@@ -8,5 +8,5 @@ export class SharedService {
 
 constructor() { }
 
-  
+
 }
