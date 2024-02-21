@@ -13,16 +13,16 @@
         <span class="preocupe">Não se preocupe, nós nunca te enviaremos spam, ok?</span>
     </div>
     <div class="bloco-direita">
-      <form>
-        <input type="text" placeholder="Seu nome*">
+      <form [formGroup]="formulario">
+        <input type="text" placeholder="Seu nome*" formControlName="nome">
         <div>
-          <input type="text" placeholder="Telefone*">
-          <input type="email" placeholder="Email*">
+          <input type="text" placeholder="Telefone*" formControlName="telefone">
+          <input type="email" placeholder="Email*" formControlName="email">
         </div>
-        <input type="text" placeholder="Assunto*">
-        <textarea name="" id="" cols="20" rows="10" placeholder="Mensagem" class="mensagem"></textarea>
-       
-        <button>Enviar mensagem</button>
+        <input type="text" placeholder="Assunto*" formControlName="assunto">
+        <textarea name="" id="" cols="20" rows="10" placeholder="Mensagem" class="mensagem" formControlName="mensagem"></textarea>
+
+        <button (click)="enviar()">Enviar mensagem</button>
       </form>
     </div>
   </div>

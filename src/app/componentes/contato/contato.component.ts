@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contato',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoComponent implements OnInit {
 
-  constructor() { }
+  formulario!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder ) { }
 
   ngOnInit() {
+    this.formulario = this.formBuilder.group({
+      nome: ['', Validators.required],
+      telefone: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      assunto: ['', Validators.required],
+      mensagem: ['', Validators.required]
+    });
+  }
+
+  enviar() {
+    if (this.formulario.valid) {
+      console.log(this.formulario.value);
+    } else {
+      // Marque os campos como tocados para exibir os erros
+      this.formulario.markAllAsTouched();
+    }
   }
 
 }

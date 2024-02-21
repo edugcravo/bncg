@@ -34,7 +34,7 @@ import { PinComponent } from './componentes/pin/pin.component';
     routing,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
