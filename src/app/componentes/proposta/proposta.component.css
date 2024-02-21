@@ -2,9 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    max-width: unset;
   }
-  
+
   .conteudo {
     width: 100%;
     max-width: 800px;
@@ -15,18 +15,18 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
   }
-  
+
   form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;
   }
-  
+
   label {
     font-weight: bold;
     color: #333;
   }
-  
+
   input,
   select {
     width: 100%;
@@ -35,7 +35,7 @@
     border-radius: 5px;
     box-sizing: border-box;
   }
-  
+
   button {
     grid-column: span 2; /* Ocupa duas colunas */
     padding: 10px;
@@ -46,35 +46,34 @@
     cursor: pointer;
     font-size: 16px;
   }
-  
+
   button:hover {
     background-color: #0056b3;
   }
-  
+
   h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
   }
-  
+
   .subtitle {
     font-size: 14px;
     color: #666;
   }
-  
+
   .error-message {
     color: red;
     font-size: 14px;
   }
-  
+
   .success-message {
     color: green;
     font-size: 14px;
   }
-  
+
   @media (max-width: 600px) {
     form {
       grid-template-columns: 1fr;
     }
   }
-  
