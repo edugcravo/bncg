@@ -2,20 +2,20 @@
   <app-menu-superior></app-menu-superior>
   <div class="container">
     
-    <h1 class="titulo">Cadastrar favorecido</h1>
+    <h1 class="titulo">Cadastrar favorecidos</h1>
 
     <form [formGroup]="formulario">
       <div class="form-group">
-        <label >Favorecido</label>
-        <input type="text" class="form-control"  formControlName="favorecido" >
+        <input type="text" class="form-control"  formControlName="favorecido" placeholder="Favorecido:">
       </div>
 
       <div class="form-group">
-        <label>CPF/CNPJ:</label>
-        <input type="text" class="form-control"  formControlName="cnpj">
+        <input type="text" class="form-control"  formControlName="cnpj"
+        placeholder="CPF/CNPJ:">
       </div>
-
-      <button type="submit" class="bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300" (click)="cadastrar()">Cadastrar</button>
+      <Div class="botao">
+      <button type="submit" (click)="cadastrar()">Cadastrar</button>
+      </Div>
     </form>
   </div>
   <app-rodape class="roda"></app-rodape>

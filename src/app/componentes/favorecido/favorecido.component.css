@@ -12,6 +12,7 @@
     border-top: solid 1px #fff;
     justify-content: center;
     height: 60vh;
+    gap: 10px;
 }
 
 
@@ -30,19 +31,43 @@
 .form-group{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 300px;
 }
 
 .titulo{
     text-align: center;
     margin-top: 50px;
-    padding-bottom: 30px;
-    font-size: 2em;
+    font-size: 40px;
+    font-weight: 300;
 }
 
 .roda{
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+.botao{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    background: #C8AE7B;
+    color: #FFFFFF;
+    padding: 11px 20px;
+    width: 133px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.form-group input{
+    width: 250px;
+    border: 0.7px solid #474A5B;
+    background-color: #06091C;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 15px;
 }
