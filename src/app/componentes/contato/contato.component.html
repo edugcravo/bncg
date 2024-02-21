@@ -14,13 +14,15 @@
     </div>
     <div class="bloco-direita">
       <form [formGroup]="formulario">
-        <input type="text" placeholder="Seu nome*" formControlName="nome">
+        <input type="text" placeholder="Seu nome*" formControlName="nome" [ngClass]="{'invalid-field': formulario.get('nome')?.invalid && formulario.get('nome')?.touched}">
+
+
         <div>
-          <input type="text" placeholder="Telefone*" formControlName="telefone">
-          <input type="email" placeholder="Email*" formControlName="email">
+          <input type="text" placeholder="Telefone*" formControlName="telefone" [ngClass]="{'invalid-field': formulario.get('telefone')?.invalid && formulario.get('telefone')?.touched}">
+          <input type="email" placeholder="Email*" formControlName="email" [ngClass]="{'invalid-field': formulario.get('email')?.invalid && formulario.get('email')?.touched}">
         </div>
-        <input type="text" placeholder="Assunto*" formControlName="assunto">
-        <textarea name="" id="" cols="20" rows="10" placeholder="Mensagem" class="mensagem" formControlName="mensagem"></textarea>
+        <input type="text" placeholder="Assunto*" formControlName="assunto" [ngClass]="{'invalid-field': formulario.get('assunto')?.invalid && formulario.get('assunto')?.touched}">
+        <textarea name="" id="" cols="20" rows="10" placeholder="Mensagem" class="mensagem" formControlName="mensagem" [ngClass]="{'invalid-field': formulario.get('mensagem')?.invalid && formulario.get('mensagem')?.touched}"></textarea>
 
         <button (click)="enviar()">Enviar mensagem</button>
       </form>

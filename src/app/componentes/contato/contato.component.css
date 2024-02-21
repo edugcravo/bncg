@@ -84,3 +84,7 @@ button{
         font-size: 12px;
     }
 }
+
+.invalid-field {
+  border-color: red !important;
+}
