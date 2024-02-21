@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ContatoService implements OnInit{
+export class FavorecidoService {
 
 constructor(private http: HttpClient) { }
 
@@ -16,11 +16,11 @@ headers = new HttpHeaders({
 
 url = environment.apiUrl
 
-ngOnInit() {
-
+cadastraFavorecido(favorecido: any){
+  return this.http.post(this.url + '/favorecido/salva', favorecido, { headers: this.headers })
 }
 
-enviarContato(contato: any){
-  return this.http.post(this.url + '/contato/salva', contato, { headers: this.headers })
+retornaFavorecidos(){
+  return this.http.get(this.url + '/favorecido/lista', { headers: this.headers })
 }
 }
