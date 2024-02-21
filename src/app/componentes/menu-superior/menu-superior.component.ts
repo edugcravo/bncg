@@ -11,6 +11,20 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class MenuSuperiorComponent implements OnInit {
 
+  scrollToContact() {
+    const contatoElement = document.getElementById('contato');
+    if (contatoElement) {
+      contatoElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  scrollToService() {
+    const serviceElement = document.getElementById('servicos');
+    if (serviceElement) {
+      serviceElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
 
   constructor(private router:Router, private sharedService: SharedService) { 
 

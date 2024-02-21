@@ -6,9 +6,9 @@
 
     <div class="menu">
       <ul>
-        <li><a >Serviços</a></li>
+        <li><a (click)="scrollToService()" routerLink="/home" fragment="servicos" >Serviços</a></li>
         <li><a href="cadastro">Cadastro</a></li>
-        <li><a >Contato</a></li>
+        <li><a (click)="scrollToContact()">Contato</a></li>
         <button class="fale">Fale conosco</button>
         <a href="pin"><button class="conta">Minha conta</button></a>
       </ul>

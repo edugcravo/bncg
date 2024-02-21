@@ -1,17 +1,22 @@
-<div class="container">
-  <h1 class="titulo">Cadastrar favorecido</h1>
+<div class="tudo">
+  <app-menu-superior></app-menu-superior>
+  <div class="container">
+    
+    <h1 class="titulo">Cadastrar favorecido</h1>
 
-  <form [formGroup]="formulario">
-    <div class="form-group">
-      <label >favorecido</label>
-      <input type="text" class="form-control"  formControlName="favorecido" >
-    </div>
+    <form [formGroup]="formulario">
+      <div class="form-group">
+        <label >Favorecido</label>
+        <input type="text" class="form-control"  formControlName="favorecido" >
+      </div>
 
-    <div class="form-group">
-      <label>Cpf/Cnpj:</label>
-      <input type="text" class="form-control"  formControlName="cnpj">
-    </div>
+      <div class="form-group">
+        <label>CPF/CNPJ:</label>
+        <input type="text" class="form-control"  formControlName="cnpj">
+      </div>
 
-    <button type="submit" class="bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300" (click)="cadastrar()">Cadastrar</button>
-  </form>
+      <button type="submit" class="bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300" (click)="cadastrar()">Cadastrar</button>
+    </form>
+  </div>
+  <app-rodape class="roda"></app-rodape>
 </div>
