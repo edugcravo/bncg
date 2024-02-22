@@ -1,16 +1,14 @@
-
-
 .container{
     max-width: unset;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #fff;
-    border-top: solid 1px #fff;
+    color: #292929;
+    border-top: solid 1px #000000;
     justify-content: center;
-    background-color: #080C22;
-    height: calc(100vh - 221px);
+    background-color: #ebebeb;
     gap: 10px;
+    padding-top: 80px;
 }
 
 .conteudo{
@@ -24,10 +22,10 @@
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #222222;
     font-size: 16px;
-    color: #ffffff;
-    background-color: #06091C;
+    color: #292929;
+    background-color: #cccccc;
     box-shadow: none;
 }
 
@@ -38,6 +36,10 @@
     width: 300px;
 }
 
+form{
+    padding-bottom: 80px;
+}
+
 .titulo{
     text-align: center;
     font-size: 40px;
@@ -45,18 +47,14 @@
     margin-bottom: 20px;
 }
 
-.roda{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
+
 
 .botao{
     display: flex;
     justify-content: center;
 }
 
-button{
+.botao button{
     background: #C8AE7B;
     color: #FFFFFF;
     padding: 11px 20px;
@@ -68,11 +66,43 @@ button{
 
 .form-group input{
     width: 250px;
-    border: 0.7px solid #474A5B;
-    background-color: #06091C;
+    border: 0.7px solid #b9bcce;
+    background-color: #ffffff;
     border-radius: 6px;
     padding: 10px;
     margin-bottom: 15px;
+}
+
+.tabela{
+    
+        border: 1px solid rgb(83, 83, 83); /* Linha envolvendo a tabela */
+        border-radius: 8px; /* Arredondar as bordas da linha */
+        overflow: hidden; /* Para cortar as pontas das bordas arredondadas */
+        margin-bottom: 80px;
+    }
+
+
+table {
+    color: #292929;
+    width: 100%;
+}
+
+th{
+    border-bottom: solid 1px rgb(83, 83, 83);
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Cores alternadas nas linhas */
+tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+tr:nth-child(odd) {
+    background-color: #e6e6e6;
 }
 
 @media (max-width: 1015px) {
