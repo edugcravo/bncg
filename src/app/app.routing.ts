@@ -8,6 +8,7 @@ import { CadastroComponent } from './componentes/cadastro/cadastro.component';
 import { ContatoComponent } from './componentes/contato/contato.component';
 import { PropostaComponent } from './componentes/proposta/proposta.component';
 import { PinComponent } from './componentes/pin/pin.component';
+import { EmitenteComponent } from './componentes/emitente/emitente.component';
 
 
 
@@ -20,8 +21,7 @@ const APP_ROUTES: Routes = [
   { path: 'cadastro', component: CadastroComponent},
   { path: 'proposta', component: PropostaComponent},
   { path: 'pin', component: PinComponent},
-
-
+  { path: 'emitente', component: EmitenteComponent},
 ];
 
 export const routing: ModuleWithProviders<any> = RouterModule.forRoot(APP_ROUTES);/*Parametro é a constante declarada a cima */
