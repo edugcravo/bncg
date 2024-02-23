@@ -10,11 +10,11 @@
             </div>
 
             <div class="cpf">
-                <input type="text" placeholder="CPF/CNPJ:" formControlName="cpf_cnpj" [ngClass]="{'invalid-field': formulario.get('cpf_cnpj')?.invalid && formulario.get('cpf_cnpj')?.touched}">
+                <input type="text" (input)="applyCpfCnpjMask($event)" maxlength="18" placeholder="CPF/CNPJ:"  formControlName="cpf_cnpj" [ngClass]="{'invalid-field': formulario.get('cpf_cnpj')?.invalid && formulario.get('cpf_cnpj')?.touched}">
             </div>
 
             <div class="rua">
-                <input type="text" placeholder="Rua e Nº:" formControlName="endereco" [ngClass]="{'invalid-field': formulario.get('endereco')?.invalid && formulario.get('endereco')?.touched}">
+                <input type="text" placeholder="Rua:" formControlName="endereco" [ngClass]="{'invalid-field': formulario.get('endereco')?.invalid && formulario.get('endereco')?.touched}">
             </div>
 
             <div class="numero">
@@ -82,14 +82,14 @@
 
         </div>
 
-        
+
         <div class="tabela">
             <div class="titu">
             <h1>Lista de emitentes</h1>
         </div>
-        
+
             <table>
-      
+
               <tr>
                 <th>ID</th>
                 <th>Emitente</th>
@@ -233,8 +233,8 @@
                 <td>41 9 96986501</td>
                 <td>botao</td>
               </tr>
-      
+
             </table>
           </div>
-        
+
 </div>

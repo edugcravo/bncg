@@ -6,20 +6,76 @@
 
       <h1 class="titulo">Cadastrar favorecidos</h1>
 
-    <form [formGroup]="formulario">
-      <div class="form-group">
-        <input type="text" class="form-control"  formControlName="favorecido" placeholder="Favorecido:">
+    <div class="cadastro">
+
+      <form [formGroup]="formulario">
+        <div class="form-group">
+          <input type="text" class="form-control"  formControlName="favorecido" placeholder="Favorecido:">
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" formControlName="cpf_cnpj"
+           placeholder="CPF/CNPJ:" (input)="applyCpfCnpjMask($event)" maxlength="18" />
+        </div>
+
+        <div class="form-group">
+          <input type="text" placeholder="Rua:" formControlName="endereco" [ngClass]="{'invalid-field': formulario.get('endereco')?.invalid && formulario.get('endereco')?.touched}">
       </div>
 
       <div class="form-group">
-        <input type="text" class="form-control"  formControlName="cpf_cnpj"
-        placeholder="CPF/CNPJ:">
+          <input type="text" placeholder="Número:" formControlName="numero" [ngClass]="{'invalid-field': formulario.get('numero')?.invalid && formulario.get('numero')?.touched}">
       </div>
+
+      <div class="form-group">
+          <input type="text" placeholder="CEP:" formControlName="cep" [ngClass]="{'invalid-field': formulario.get('cep')?.invalid && formulario.get('cep')?.touched}">
+      </div>
+
+      <div class="form-group">
+          <input type="text" placeholder="Cidade:" formControlName="cidade" [ngClass]="{'invalid-field': formulario.get('cidade')?.invalid && formulario.get('cidade')?.touched}">
+      </div>
+
+      <div class="form-group">
+          <select name="estadosBrasil" id="estadosBrasil" formControlName="uf" [ngClass]="{'invalid-field': formulario.get('uf')?.invalid && formulario.get('uf')?.touched}">
+              <option value="" disabled selected class="uf">Estado</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+          </select>
+      </div>
+
+      </form>
+
+
       <div class="botao">
-      <button type="submit" (click)="cadastrar()" *ngIf="!editando">Cadastrar</button>
-      <button type="submit" (click)="editar()" *ngIf="editando">Editar</button>
+        <button type="submit" (click)="cadastrar()" *ngIf="!editando">Cadastrar</button>
+        <button type="submit" (click)="editar()" *ngIf="editando">Editar</button>
       </div>
-    </form>
+
+    </div>
 
     <div class="conteudo_tabela">
 

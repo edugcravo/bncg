@@ -28,27 +28,14 @@
   width: 100%;
 }
 
-
-.form-control{
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #222222;
-    font-size: 16px;
-    color: #292929;
-    background-color: #cccccc;
-    box-shadow: none;
-}
-
-.form-group{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 300px;
+.cadastro{
+  padding-bottom: 80px;
 }
 
 form{
-    padding-bottom: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px
 }
 
 .titulo{
@@ -73,16 +60,19 @@ form{
     font-size: 14px;
     font-weight: 500;
     line-height: 16px;
+    margin-top: 15px;
+
 }
 
-.form-group input{
-    width: 250px;
-    border: 0.7px solid #b9bcce;
-    background-color: #ffffff;
-    border-radius: 6px;
-    padding: 10px;
-    margin-bottom: 15px;
+.form-group input, select{
+  width: 250px;
+  border: 0.7px solid #b9bcce;
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 10px;
+  color: #292929
 }
+
 
 .tabela{
     margin-bottom: 80px;

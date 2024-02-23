@@ -34,6 +34,13 @@ export class EmitenteComponent implements OnInit{
   carregando: boolean = false;
 
   enviaDadosForm(){
+    // retirar pontos e traços do cpf ou cnpj
+    let cpf_cnpj = this.formulario.value.cpf_cnpj;
+    cpf_cnpj = cpf_cnpj.replace(/\./g, '');
+    cpf_cnpj = cpf_cnpj.replace(/\-/g, '');
+    cpf_cnpj = cpf_cnpj.replace(/\//g, '');
+    this.formulario.controls['cpf_cnpj'].setValue(cpf_cnpj)
+
     this.carregando = true;
     if (this.formulario.valid) {
       this.emitenteService.cadastrarEmitente(this.formulario.value).subscribe((data: any) => {
@@ -52,7 +59,28 @@ export class EmitenteComponent implements OnInit{
       });
     } else {
       // Marque os campos como tocados para exibir os erros
+
       this.formulario.markAllAsTouched();
     }
+  }
+
+  applyCpfCnpjMask(event: any) {
+    let value = event.target.value;
+    // aplicar amscara de cpf ou cnpj
+    if (value.length <= 14) {
+      value = value.replace(/\D/g, '');
+      value = value.replace(/(\d{3})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    } else {
+      value = value.replace(/\D/g, '');
+      value = value.replace(/(\d{2})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d)/, '$1/$2');
+      value = value.replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+    }
+
+    event.target.value = value;
+
   }
 }

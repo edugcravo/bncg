@@ -19,7 +19,12 @@ export class FavorecidoComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       id:[0],
       favorecido: ['', Validators.required],
-      cpf_cnpj: ['', Validators.required]
+      cpf_cnpj: ['', Validators.required],
+      endereco: ['', Validators.required],
+      numero: ['', Validators.required],
+      cidade: ['', Validators.required],
+      uf: ['', Validators.required],
+      cep: ['', Validators.required],
     });
 
     this.listarFavorecidos()
@@ -27,6 +32,15 @@ export class FavorecidoComponent implements OnInit {
 
 
   cadastrar() {
+    //retirar pontos e traços do cpf ou cnpj
+    let cpf_cnpj = this.formulario.value.cpf_cnpj;
+    cpf_cnpj = cpf_cnpj.replace(/\./g, '');
+    cpf_cnpj = cpf_cnpj.replace(/\-/g, '');
+    cpf_cnpj = cpf_cnpj.replace(/\//g, '');
+    this.formulario.controls['cpf_cnpj'].setValue(cpf_cnpj);
+
+    console.log(this.formulario.value);
+
     if (this.formulario.valid) {
       this.favorecidoService.cadastraFavorecido(this.formulario.value).subscribe((data: any) => {
         if(data.status == 200){
@@ -38,6 +52,8 @@ export class FavorecidoComponent implements OnInit {
           })
           //resetar form
           this.formulario.reset();
+          //definir o cep como a opcao disabled
+          // this.formulario.controls['cep'].setValue("");
           this.listarFavorecidos();
          }
       })
@@ -77,5 +93,25 @@ export class FavorecidoComponent implements OnInit {
       this.formulario.reset();
 
     })
+  }
+
+  applyCpfCnpjMask(event: any) {
+    let value = event.target.value;
+    // aplicar amscara de cpf ou cnpj
+    if (value.length <= 14) {
+      value = value.replace(/\D/g, '');
+      value = value.replace(/(\d{3})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    } else {
+      value = value.replace(/\D/g, '');
+      value = value.replace(/(\d{2})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d)/, '$1/$2');
+      value = value.replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+    }
+
+    event.target.value = value;
+
   }
 }

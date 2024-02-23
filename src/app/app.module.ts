@@ -43,7 +43,8 @@ registerLocaleData(en);
     RodapeComponent,
     PropostaComponent,
     PinComponent,
-    EmitenteComponent
+    EmitenteComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -55,8 +56,8 @@ registerLocaleData(en);
     NzSpinModule,
     NzMessageModule,
     NzTableModule,
-    NzDividerModule
-    ],
+    NzDividerModule,
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: NZ_I18N, useValue: en_US }
