@@ -24,4 +24,12 @@ cadastraFavorecido(favorecido: any){
 retornaFavorecidos(){
   return this.http.get(this.url + '/favorecido/lista', { headers: this.headers })
 }
+
+editaFavorecido(favorecido: any){
+  return this.http.put(this.url + '/favorecido/edita', favorecido, { headers: this.headers })
+}
+
+retornaPorId(id: any){
+  return this.http.get(`${this.url}/favorecido/retorna-por-id?id=${id}`, { headers: this.headers });
+}
 }

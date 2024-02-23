@@ -15,27 +15,40 @@
         <input type="text" class="form-control"  formControlName="cpf_cnpj"
         placeholder="CPF/CNPJ:">
       </div>
-      <Div class="botao">
-      <button type="submit" (click)="cadastrar()">Cadastrar</button>
-      </Div>
+      <div class="botao">
+      <button type="submit" (click)="cadastrar()" *ngIf="!editando">Cadastrar</button>
+      <button type="submit" (click)="editar()" *ngIf="editando">Editar</button>
+      </div>
     </form>
 
-    <div class="tabela">
-      <table>
+    <div class="conteudo_tabela">
 
-        <tr>
-          <th>Favorecido</th>
-          <th>CPF/CNPJ</th>
-          <th> <button ><img src="../../../assets/imagens/editar-texto.png" alt=""></button></th>
-        </tr>
-        <tr *ngFor="let item of favorecidos">
-          <td>{{item.favorecido}}</td>
-          <td>{{item.cpf_cnpj}}</td>
-          <td><button ><img src="../../../assets/imagens/editar-texto.png" alt=""></button></td>
-        </tr>
+      <h1>Favorecidos cadastrados</h1>
 
+      <div class="tabela">
 
-      </table>
+        <div class="table">
+
+          <nz-table #sortTable [nzData]="favorecidos" nzTableLayout="fixed">
+            <thead>
+              <tr>
+                <th>Favorecido</th>
+                <th>CPF/CNPJ</th>
+                <th class="largura-celula">Editar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of favorecidos">
+                <td>{{ data.favorecido }}</td>
+                <td>{{ data.cpf_cnpj }}</td>
+                <td class="largura-celula" (click)="retornaPorId(data.id)"><img src="assets/imagens/editar-texto.png" alt=""></td>
+              </tr>
+            </tbody>
+          </nz-table>
+
+        </div>
+      </div>
+
     </div>
 
     </div>

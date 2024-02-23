@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NzTableSortFn } from 'ng-zorro-antd/table';
 import { FavorecidoService } from 'src/app/services/favorecido.service';
 import Swal from 'sweetalert2'
 
@@ -12,7 +13,7 @@ export class FavorecidoComponent implements OnInit {
 
   formulario!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private favoreciService: FavorecidoService) { }
+  constructor(private formBuilder: FormBuilder, private favorecidoService: FavorecidoService) { }
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
@@ -27,7 +28,7 @@ export class FavorecidoComponent implements OnInit {
 
   cadastrar() {
     if (this.formulario.valid) {
-      this.favoreciService.cadastraFavorecido(this.formulario.value).subscribe((data: any) => {
+      this.favorecidoService.cadastraFavorecido(this.formulario.value).subscribe((data: any) => {
         if(data.status == 200){
           Swal.fire({
             title: 'Favorecido cadastrado com sucesso!',
@@ -49,9 +50,32 @@ export class FavorecidoComponent implements OnInit {
   favorecidos: any;
 
   listarFavorecidos(){
-    this.favoreciService.retornaFavorecidos().subscribe((data: any) => {
+    this.favorecidoService.retornaFavorecidos().subscribe((data: any) => {
       this.favorecidos = data.result;
       console.log(data);
+    })
+  }
+
+  editando: any = false;
+
+  retornaPorId(id: number){
+    this.favorecidoService.retornaPorId(id).subscribe((data: any) => {
+      console.log(data)
+      this.formulario.patchValue(data.result);
+      this.editando = true;
+      //deixar botao editando ao inves de cadastrar
+
+    })
+
+  }
+
+  editar(){
+    this.favorecidoService.editaFavorecido(this.formulario.value).subscribe((data: any) => {
+      console.log(data)
+      this.listarFavorecidos();
+      this.editando = false;
+      this.formulario.reset();
+
     })
   }
 }

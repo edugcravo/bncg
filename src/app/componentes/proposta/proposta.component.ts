@@ -62,6 +62,6 @@ export class PropostaComponent implements OnInit {
   recebeFavorecido(){
     this.favorecidoService.retornaFavorecidos().subscribe((data: any) => {
       console.log(data)
-      this.favorecido = data.result;
+      this.favorecido = data?.result;
   })}
 }

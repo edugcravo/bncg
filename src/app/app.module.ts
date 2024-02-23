@@ -25,6 +25,9 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+
 
 registerLocaleData(en);
 
@@ -50,7 +53,9 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     NzSpinModule,
-    NzMessageModule
+    NzMessageModule,
+    NzTableModule,
+    NzDividerModule
     ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
