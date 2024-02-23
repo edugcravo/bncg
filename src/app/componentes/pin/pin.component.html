@@ -8,7 +8,8 @@
       <input type="text" placeholder="Entre com o pin"  formControlName="username" [ngClass]="{'invalid-field': formulario.get('username')?.invalid && formulario.get('username')?.touched}">
       <input type="password" placeholder="Entre com a senha"  formControlName="password" [ngClass]="{'invalid-field': formulario.get('password')?.invalid && formulario.get('password')?.touched}">
 
-      <button>Entrar</button>
+      <button *ngIf="!carregando">Entrar</button>
+      <button *ngIf="carregando"  [disabled]="carregando"><nz-spin nzSimple></nz-spin> </button>
 
 
     </form>

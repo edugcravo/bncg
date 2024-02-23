@@ -74,7 +74,7 @@ form{
 }
 
 .tabela{
-    
+
         border: 1px solid rgb(83, 83, 83); /* Linha envolvendo a tabela */
         border-radius: 8px; /* Arredondar as bordas da linha */
         overflow: hidden; /* Para cortar as pontas das bordas arredondadas */
@@ -105,8 +105,8 @@ tr:nth-child(odd) {
     background-color: #e6e6e6;
 }
 
-@media (max-width: 1015px) {
+/* @media (max-width: 1015px) {
  .container{
   height: calc(100vh - 225px);
- }
-}
+ } */
+

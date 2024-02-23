@@ -1,7 +1,7 @@
 <div class="tudo">
   <app-menu-superior class="menu"></app-menu-superior>
   <div class="container">
-    
+
     <div class="conteudo">
 
     <div class="titulo">
@@ -15,18 +15,14 @@
         <div class="emitente">
           <label>Escolha o emitente:</label>
           <select formControlName="emitente">
-            <option value="Banco">Banco</option>
-            <option value="Seguradora">Seguradora</option>
-            <option value="Fiador">Fiador</option>
+            <option [value]="item.emitente" *ngFor="let item of emitente">{{item.emitente}}</option>
           </select>
         </div>
 
         <div class="favorecido">
           <label>Escolha o favorecido:</label>
           <select formControlName="favorecido">
-            <option value="Banco">Banco</option>
-            <option value="Seguradora">Seguradora</option>
-            <option value="Fiador">Fiador</option>
+            <option [value]="item.favorecido" *ngFor="let item of favorecido">{{item.favorecido}}</option>
           </select>
         </div>
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CartaService } from 'src/app/services/carta.service';
+import { EmitenteService } from 'src/app/services/emitente.service';
+import { FavorecidoService } from 'src/app/services/favorecido.service';
 
 @Component({
   selector: 'app-proposta',
@@ -11,7 +13,7 @@ export class PropostaComponent implements OnInit {
 
   formGroup!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private cartaService: CartaService) { }
+  constructor(private formBuilder: FormBuilder, private cartaService: CartaService, private emitenteService: EmitenteService, private favorecidoService: FavorecidoService) { }
 
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
@@ -31,6 +33,9 @@ export class PropostaComponent implements OnInit {
       assinaProposta: ['', Validators.required],
       senha: ['', Validators.required],
     });
+
+    this.recebeEmitente()
+    this.recebeFavorecido()
   }
 
   submitForm() {
@@ -42,4 +47,21 @@ export class PropostaComponent implements OnInit {
       });
     }
   }
+
+
+  emitente: any;
+
+  recebeEmitente(){
+    this.emitenteService.retornaEmitente().subscribe((data: any) => {
+      this.emitente = data.result;
+    })
+  }
+
+  favorecido: any;
+
+  recebeFavorecido(){
+    this.favorecidoService.retornaFavorecidos().subscribe((data: any) => {
+      console.log(data)
+      this.favorecido = data.result;
+  })}
 }
