@@ -20,6 +20,8 @@ export class FavorecidoComponent implements OnInit {
       favorecido: ['', Validators.required],
       cpf_cnpj: ['', Validators.required]
     });
+
+    this.listarFavorecidos()
   }
 
 
@@ -42,5 +44,11 @@ export class FavorecidoComponent implements OnInit {
       // Marque os campos como tocados para exibir os erros
       this.formulario.markAllAsTouched();
     }
+  }
+
+  listarFavorecidos(){
+    this.favoreciService.retornaFavorecidos().subscribe((data: any) => {
+      console.log(data);
+    })
   }
 }

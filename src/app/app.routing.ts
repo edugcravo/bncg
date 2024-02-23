@@ -9,19 +9,22 @@ import { ContatoComponent } from './componentes/contato/contato.component';
 import { PropostaComponent } from './componentes/proposta/proposta.component';
 import { PinComponent } from './componentes/pin/pin.component';
 import { EmitenteComponent } from './componentes/emitente/emitente.component';
+import { AuthGuard } from './componentes/autentica/AuthGuard';
 
 
 
 const APP_ROUTES: Routes = [
   { path:'', redirectTo:'/home',pathMatch:'full'},
   { path: 'login', component: LoginComponent },
-  { path: 'favorecido', component: FavorecidoComponent},
+  { path: 'favorecido', component: FavorecidoComponent, canActivate: [AuthGuard]},
   { path: 'menu', component: MenuSuperiorComponent},
   { path: 'home', component: HomeComponent},
   { path: 'cadastro', component: CadastroComponent},
-  { path: 'proposta', component: PropostaComponent},
+  { path: 'proposta', component: PropostaComponent, canActivate: [AuthGuard]},
   { path: 'pin', component: PinComponent},
-  { path: 'emitente', component: EmitenteComponent},
+  { path: 'emitente', component: EmitenteComponent, canActivate: [AuthGuard]},
 ];
+
+
 
 export const routing: ModuleWithProviders<any> = RouterModule.forRoot(APP_ROUTES);/*Parametro é a constante declarada a cima */

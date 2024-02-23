@@ -11,26 +11,31 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class MenuSuperiorComponent implements OnInit {
 
-  scrollToContact() {
-    const contatoElement = document.getElementById('contato');
-    if (contatoElement) {
-      contatoElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
 
-  scrollToService() {
-    const serviceElement = document.getElementById('servicos');
-    if (serviceElement) {
-      serviceElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-
-  constructor(private router:Router, private sharedService: SharedService) { 
+  constructor(private router:Router, private sharedService: SharedService) {
 
   }
 
   ngOnInit() {
+  }
+
+
+  scrollToContato() {
+    this.router.navigate(['/home']).then(() => {
+      const contatoElement = document.getElementById('contato');
+      if (contatoElement) {
+        contatoElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  scrollToService() {
+    this.router.navigate(['/home']).then(() => {
+      const contatoElement = document.getElementById('servicos');
+      if (contatoElement) {
+        contatoElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   }
 
   redirecionaHome(){
