@@ -1,16 +1,14 @@
-
-.tudo{
-    height: 100vh;
-    background-color: #080C22;
-}
-
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     max-width: unset;
-    background-color: #080C22;
-    border-top: solid 1px white;
+    background-color: #ebebeb;
+    border-top: solid 1px rgb(0, 0, 0);
+  }
+
+  .titulo h1{
+    font-size: 28px;
   }
 
   .conteudo {
