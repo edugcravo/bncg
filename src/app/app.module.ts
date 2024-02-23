@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FavorecidoComponent } from './componentes/favorecido/favorecido.component';
 import { MenuSuperiorComponent } from './componentes/menu-superior/menu-superior.component';
 import { HomeComponent } from './componentes/home/home.component';
@@ -16,6 +16,7 @@ import { RodapeComponent } from './componentes/rodape/rodape.component';
 import { PropostaComponent } from './componentes/proposta/proposta.component';
 import { PinComponent } from './componentes/pin/pin.component';
 import { EmitenteComponent } from './componentes/emitente/emitente.component';
+import { AuthInterceptor } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { EmitenteComponent } from './componentes/emitente/emitente.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

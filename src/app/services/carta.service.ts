@@ -13,7 +13,8 @@ url = environment.apiUrl
 
 headers = new HttpHeaders({
   'Content-Type': 'application/json',
-  'Accept-Enconding': 'gzip'
+  'Accept-Enconding': 'gzip',
+  Authorization: 'Bearer ' + localStorage.getItem('token')
 });
 
   enviaCarta(carta: any){
