@@ -37,17 +37,20 @@ export class FavorecidoComponent implements OnInit {
           })
           //resetar form
           this.formulario.reset();
+          this.listarFavorecidos();
          }
       })
-      console.log(this.formulario.value);
     } else {
       // Marque os campos como tocados para exibir os erros
       this.formulario.markAllAsTouched();
     }
   }
 
+  favorecidos: any;
+
   listarFavorecidos(){
     this.favoreciService.retornaFavorecidos().subscribe((data: any) => {
+      this.favorecidos = data.result;
       console.log(data);
     })
   }

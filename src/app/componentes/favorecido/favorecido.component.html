@@ -24,148 +24,16 @@
       <table>
 
         <tr>
-          <th>ID</th>
-          <th>Emitente</th>
+          <th>Favorecido</th>
           <th>CPF/CNPJ</th>
-          <th>Rua</th>
-          <th>Bairro</th>
-          <th>Cidade</th>
-          <th>UF</th>
-          <th>CEP</th>
-          <th>Nome Contato</th>
-          <th>Telefone</th>
           <th> <button ><img src="../../../assets/imagens/editar-texto.png" alt=""></button></th>
         </tr>
-        <tr>
-          <td>000</td>
-          <td>Electrolux</td>
-          <td>124.889.169-43</td>
-          <td>Rua Dep Waldemiro Pedroso</td>
-          <td>Novo Mundo</td>
-          <td>Curitiba</td>
-          <td>PR</td>
-          <td>81.050-150</td>
-          <td>Matheus</td>
-          <td>41 9 96986501</td>
-          <td>botao</td>
+        <tr *ngFor="let item of favorecidos">
+          <td>{{item.favorecido}}</td>
+          <td>{{item.cpf_cnpj}}</td>
+          <td><button ><img src="../../../assets/imagens/editar-texto.png" alt=""></button></td>
         </tr>
-        <tr>
-          <td>000</td>
-          <td>Electrolux</td>
-          <td>124.889.169-43</td>
-          <td>Rua Dep Waldemiro Pedroso</td>
-          <td>Novo Mundo</td>
-          <td>Curitiba</td>
-          <td>PR</td>
-          <td>81.050-150</td>
-          <td>Matheus</td>
-          <td>41 9 96986501</td>
-          <td>botao</td>
-        </tr>
-        <tr>
-          <td>000</td>
-          <td>Electrolux</td>
-          <td>124.889.169-43</td>
-          <td>Rua Dep Waldemiro Pedroso</td>
-          <td>Novo Mundo</td>
-          <td>Curitiba</td>
-          <td>PR</td>
-          <td>81.050-150</td>
-          <td>Matheus</td>
-          <td>41 9 96986501</td>
-          <td>botao</td>
-        </tr>
-        <tr>
-          <td>000</td>
-          <td>Electrolux</td>
-          <td>124.889.169-43</td>
-          <td>Rua Dep Waldemiro Pedroso</td>
-          <td>Novo Mundo</td>
-          <td>Curitiba</td>
-          <td>PR</td>
-          <td>81.050-150</td>
-          <td>Matheus</td>
-          <td>41 9 96986501</td>
-          <td>botao</td>
-        </tr>
-        <tr>
-          <td>000</td>
-          <td>Electrolux</td>
-          <td>124.889.169-43</td>
-          <td>Rua Dep Waldemiro Pedroso</td>
-          <td>Novo Mundo</td>
-          <td>Curitiba</td>
-          <td>PR</td>
-          <td>81.050-150</td>
-          <td>Matheus</td>
-          <td>41 9 96986501</td>
-          <td>botao</td>
-        </tr>
-        <tr>
-          <td>000</td>
-          <td>Electrolux</td>
-          <td>124.889.169-43</td>
-          <td>Rua Dep Waldemiro Pedroso</td>
-          <td>Novo Mundo</td>
-          <td>Curitiba</td>
-          <td>PR</td>
-          <td>81.050-150</td>
-          <td>Matheus</td>
-          <td>41 9 96986501</td>
-          <td>botao</td>
-        </tr>
-        <tr>
-          <td>000</td>
-          <td>Electrolux</td>
-          <td>124.889.169-43</td>
-          <td>Rua Dep Waldemiro Pedroso</td>
-          <td>Novo Mundo</td>
-          <td>Curitiba</td>
-          <td>PR</td>
-          <td>81.050-150</td>
-          <td>Matheus</td>
-          <td>41 9 96986501</td>
-          <td>botao</td>
-        </tr>
-        <tr>
-          <td>000</td>
-          <td>Electrolux</td>
-          <td>124.889.169-43</td>
-          <td>Rua Dep Waldemiro Pedroso</td>
-          <td>Novo Mundo</td>
-          <td>Curitiba</td>
-          <td>PR</td>
-          <td>81.050-150</td>
-          <td>Matheus</td>
-          <td>41 9 96986501</td>
-          <td>botao</td>
-        </tr>
-        <tr>
-          <td>000</td>
-          <td>Electrolux</td>
-          <td>124.889.169-43</td>
-          <td>Rua Dep Waldemiro Pedroso</td>
-          <td>Novo Mundo</td>
-          <td>Curitiba</td>
-          <td>PR</td>
-          <td>81.050-150</td>
-          <td>Matheus</td>
-          <td>41 9 96986501</td>
-          <td>botao</td>
-        </tr>
-        <tr>
-          <td>000</td>
-          <td>Electrolux</td>
-          <td>124.889.169-43</td>
-          <td>Rua Dep Waldemiro Pedroso</td>
-          <td>Novo Mundo</td>
-          <td>Curitiba</td>
-          <td>PR</td>
-          <td>81.050-150</td>
-          <td>Matheus</td>
-          <td>41 9 96986501</td>
-          <td>botao</td>
-        </tr>
+
 
       </table>
     </div>
