@@ -25,4 +25,13 @@ retornaEmitente(){
   return this.http.get(this.url + '/emitente/lista', { headers: this.headers })
 }
 
+editaEmitente(emitente: any){
+  return this.http.put(this.url + '/emitente/edita', emitente, { headers: this.headers })
+
+}
+
+retornaPorId(id: any){
+  return this.http.get(`${this.url}/emitente/retorna-por-id?id=${id}`, { headers: this.headers });
+}
+
 }

@@ -26,7 +26,7 @@
             </div>
 
             <div class="cep">
-                <input type="number" placeholder="CEP:" formControlName="cep" [ngClass]="{'invalid-field': formulario.get('cep')?.invalid && formulario.get('cep')?.touched}">
+                <input type="text" (input)="applyCepMask($event)" placeholder="CEP:" formControlName="cep" [ngClass]="{'invalid-field': formulario.get('cep')?.invalid && formulario.get('cep')?.touched}">
             </div>
 
             <div class="cidade">
@@ -76,8 +76,10 @@
 
         </form>
 
-        <div class="botao" (click)="enviaDadosForm()">
-                <button>Salvar</button>
+        <div class="botao" >
+                <button type="submit" (click)="cadastrar()" *ngIf="!editando">Salvar</button>
+                <button type="submit" (click)="editar()" *ngIf="editando">Editar</button>
+
             </div>
 
         </div>
@@ -85,156 +87,31 @@
 
         <div class="tabela">
             <div class="titu">
-            <h1>Lista de emitentes</h1>
-        </div>
+              <h1>Lista de emitentes</h1>
+            </div>
 
-            <table>
+            <nz-table #sortTable [nzData]="emitente" nzTableLayout="fixed" [nzShowPagination]="false">
+              <thead>
+                <tr>
+                  <th>Favorecido</th>
+                  <th>CPF/CNPJ</th>
+                  <th class="largura-celula">Editar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of emitentePaginado">
+                  <td>{{ data?.emitente }}</td>
+                  <td>{{ data?.cpf_cnpj }}</td>
+                  <td class="largura-celula" (click)="retornaPorId(data.id)"><img src="assets/imagens/editar-texto.png" alt=""></td>
+                </tr>
 
-              <tr>
-                <th>ID</th>
-                <th>Emitente</th>
-                <th>CPF/CNPJ</th>
-                <th>Rua</th>
-                <th>Bairro</th>
-                <th>Cidade</th>
-                <th>UF</th>
-                <th>CEP</th>
-                <th>Nome Contato</th>
-                <th>Telefone</th>
-                <th> <button ><img src="../../../assets/imagens/editar-texto.png" alt=""></button></th>
-              </tr>
-              <tr>
-                <td>000</td>
-                <td>Electrolux</td>
-                <td>124.889.169-43</td>
-                <td>Rua Dep Waldemiro Pedroso</td>
-                <td>Novo Mundo</td>
-                <td>Curitiba</td>
-                <td>PR</td>
-                <td>81.050-150</td>
-                <td>Matheus</td>
-                <td>41 9 96986501</td>
-                <td>botao</td>
-              </tr>
-              <tr>
-                <td>000</td>
-                <td>Electrolux</td>
-                <td>124.889.169-43</td>
-                <td>Rua Dep Waldemiro Pedroso</td>
-                <td>Novo Mundo</td>
-                <td>Curitiba</td>
-                <td>PR</td>
-                <td>81.050-150</td>
-                <td>Matheus</td>
-                <td>41 9 96986501</td>
-                <td>botao</td>
-              </tr>
-              <tr>
-                <td>000</td>
-                <td>Electrolux</td>
-                <td>124.889.169-43</td>
-                <td>Rua Dep Waldemiro Pedroso</td>
-                <td>Novo Mundo</td>
-                <td>Curitiba</td>
-                <td>PR</td>
-                <td>81.050-150</td>
-                <td>Matheus</td>
-                <td>41 9 96986501</td>
-                <td>botao</td>
-              </tr>
-              <tr>
-                <td>000</td>
-                <td>Electrolux</td>
-                <td>124.889.169-43</td>
-                <td>Rua Dep Waldemiro Pedroso</td>
-                <td>Novo Mundo</td>
-                <td>Curitiba</td>
-                <td>PR</td>
-                <td>81.050-150</td>
-                <td>Matheus</td>
-                <td>41 9 96986501</td>
-                <td>botao</td>
-              </tr>
-              <tr>
-                <td>000</td>
-                <td>Electrolux</td>
-                <td>124.889.169-43</td>
-                <td>Rua Dep Waldemiro Pedroso</td>
-                <td>Novo Mundo</td>
-                <td>Curitiba</td>
-                <td>PR</td>
-                <td>81.050-150</td>
-                <td>Matheus</td>
-                <td>41 9 96986501</td>
-                <td>botao</td>
-              </tr>
-              <tr>
-                <td>000</td>
-                <td>Electrolux</td>
-                <td>124.889.169-43</td>
-                <td>Rua Dep Waldemiro Pedroso</td>
-                <td>Novo Mundo</td>
-                <td>Curitiba</td>
-                <td>PR</td>
-                <td>81.050-150</td>
-                <td>Matheus</td>
-                <td>41 9 96986501</td>
-                <td>botao</td>
-              </tr>
-              <tr>
-                <td>000</td>
-                <td>Electrolux</td>
-                <td>124.889.169-43</td>
-                <td>Rua Dep Waldemiro Pedroso</td>
-                <td>Novo Mundo</td>
-                <td>Curitiba</td>
-                <td>PR</td>
-                <td>81.050-150</td>
-                <td>Matheus</td>
-                <td>41 9 96986501</td>
-                <td>botao</td>
-              </tr>
-              <tr>
-                <td>000</td>
-                <td>Electrolux</td>
-                <td>124.889.169-43</td>
-                <td>Rua Dep Waldemiro Pedroso</td>
-                <td>Novo Mundo</td>
-                <td>Curitiba</td>
-                <td>PR</td>
-                <td>81.050-150</td>
-                <td>Matheus</td>
-                <td>41 9 96986501</td>
-                <td>botao</td>
-              </tr>
-              <tr>
-                <td>000</td>
-                <td>Electrolux</td>
-                <td>124.889.169-43</td>
-                <td>Rua Dep Waldemiro Pedroso</td>
-                <td>Novo Mundo</td>
-                <td>Curitiba</td>
-                <td>PR</td>
-                <td>81.050-150</td>
-                <td>Matheus</td>
-                <td>41 9 96986501</td>
-                <td>botao</td>
-              </tr>
-              <tr>
-                <td>000</td>
-                <td>Electrolux</td>
-                <td>124.889.169-43</td>
-                <td>Rua Dep Waldemiro Pedroso</td>
-                <td>Novo Mundo</td>
-                <td>Curitiba</td>
-                <td>PR</td>
-                <td>81.050-150</td>
-                <td>Matheus</td>
-                <td>41 9 96986501</td>
-                <td>botao</td>
-              </tr>
+              </tbody>
+            </nz-table>
 
-            </table>
+            <nz-pagination [nzPageSize]="5" [nzTotal]="emitente?.length" (nzPageIndexChange)="onPageChange($event)">
+            </nz-pagination>
+
+
           </div>
 
 </div>
