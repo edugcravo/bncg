@@ -36,6 +36,7 @@
 
 .menu ul{
     display: flex;
+    align-items: center;
     gap: 24px;
 }
 
@@ -52,11 +53,17 @@
     border: 1px solid #C8AE7B;
     color: #C8AE7B;
     padding: 6px 13px;
+    height: 38px;
 }
 
 .logo{
     max-width: 200px;
     cursor: pointer;
+}
+
+.logout{
+  height: 20px;
+  cursor: pointer;
 }
 
 @media (max-width: 1015px) {
@@ -68,4 +75,5 @@
         display: unset;
         color: white;
     }
+
 }

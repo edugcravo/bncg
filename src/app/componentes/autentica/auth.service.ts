@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-constructor(private http: HttpClient) { }
+constructor(private http: HttpClient, private router: Router) { }
 
 url = environment.apiUrl
 
@@ -34,4 +35,10 @@ isLoggedIn(): boolean {
   // Verifica se o token JWT está presente no localStorage
   return !!localStorage.getItem('token');
 }
+
+
+logout(){
+  localStorage.removeItem('token');
+  this.router.navigate(['/pin']);
+  }
 }

@@ -11,6 +11,7 @@
         <li><a (click)="scrollToContato()">Contato</a></li>
         <button class="fale">Fale conosco</button>
         <a href="pin"><button class="conta">Minha conta</button></a>
+        <img src="assets/imagens/logout.svg" alt="" class="logout" (click)="deslogar()" *ngIf="usuarioLogado">
       </ul>
     </div>
 
