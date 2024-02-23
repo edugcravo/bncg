@@ -1,7 +1,7 @@
 .container{
     max-width: unset;
-    background-color: #080C22;
-    border-top: solid 1px white;
+    background-color: #ebebeb;
+    border-top: solid 1px rgb(0, 0, 0);
     padding-top: 50px;
     padding-bottom: 50px;
     height: calc(100vh - 80px);
@@ -14,7 +14,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #080C22;
+    background-color: #ebebeb;
 
 }
 
@@ -26,18 +26,20 @@ form {
 
 input , select{
     width: 250px;
-    border: 0.7px solid #474A5B;
-    background-color: #06091C;
+    border: 0.7px solid #b9bcce;
+    background-color: #ffffff;
     border-radius: 6px;
     padding: 10px;
-    color: white;
+    color: #292929
 }
 
-
+.uf{
+    color: #b9bcce;
+}
 
 .titulo{
     font-size: 40px;
-    color: white;
+    color: #292929;
     text-align: center;
     font-weight: 300;
     margin-bottom: 20px;
