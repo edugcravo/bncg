@@ -42,10 +42,12 @@
     font-weight: 300;
     line-height: 26px;
     margin-top: 15px;
+    color: #FFFFFF;
 }
 
 .titulo span{
     font-weight: 700;
+    color: #FFFFFF;
 }
 
 .quantidades{
@@ -89,7 +91,7 @@
 
 .informacoes{
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     width: var(--width);
     margin: auto;
 }
@@ -152,10 +154,10 @@
 }
 
 .cartas-personalizadas{
-    width: 25vw; 
-    height: 36vw; 
-    max-height: 436px; 
-    background-image: 
+    width: 25vw;
+    height: 36vw;
+    max-height: 436px;
+    background-image:
     linear-gradient(180.04deg, rgba(0, 0, 0, 0) 36.72%, rgba(0, 0, 0, 0.96) 99.97%),
     url('\src\assets\imagens\fundo_cartas.png');
     background-position: center;
@@ -168,12 +170,12 @@
 
 .blocos{
     display: flex;
-    gap: 1vw; 
+    gap: 1vw;
     justify-content: center;
 }
 
 .topo, .inferior {
-    height: 50%;  
+    height: 50%;
     display: flex;
 }
 
@@ -181,7 +183,7 @@
     width: 25vw; /* 40% da largura da viewport */
     margin-right: 1vw; /* Espaçamento de 1% da largura da viewport */
     margin-bottom: 1vw; /* Espaçamento de 1% da largura da viewport */
-    background-image: 
+    background-image:
     linear-gradient(180.04deg, rgba(0, 0, 0, 0) 36.72%, rgba(0, 0, 0, 0.96) 99.97%),
     url('\src\assets\imagens\formacao.png');
     background-position: center;
@@ -193,9 +195,9 @@
 }
 
 .intermediacao{
-    width: 80%; 
-    margin-bottom: 1vw; 
-    background-image: 
+    width: 80%;
+    margin-bottom: 1vw;
+    background-image:
         linear-gradient(180.04deg, rgba(0, 0, 0, 0) 36.72%, rgba(0, 0, 0, 0.96) 99.97%),
         url('\src\assets\imagens\intermediacao.png');
     background-position: center;
@@ -209,7 +211,7 @@
 .negocios {
     width: 34vw;
     margin-right: 1vw;
-    background-image: 
+    background-image:
         linear-gradient(180.04deg, rgba(0, 0, 0, 0) 36.72%, rgba(0, 0, 0, 0.96) 99.97%),
         url('\src\assets\imagens\negocios.png');
     background-position: center;
@@ -222,8 +224,8 @@
 
 
 .consultoria{
-    width: 60%; 
-    background-image: 
+    width: 60%;
+    background-image:
     linear-gradient(180.04deg, rgba(0, 0, 0, 0) 36.72%, rgba(0, 0, 0, 0.96) 99.97%),
     url('\src\assets\imagens\consultoria.png');
     background-position: center;
@@ -243,6 +245,10 @@
 .cartas-personalizadas p, .formacao p, .intermediacao p, .negocios p, .consultoria p{
     padding: 10px;
 }
+
+.confianca{
+  color: #FFFFFF !important;
+ }
 
 
 @media (max-width: 1015px) {
@@ -266,7 +272,9 @@
    .titulo h1, .quantidade h1{
     font-size: 32px;
     line-height: 40px;
+
    }
+
 
    .quantidades{
     display: flex;

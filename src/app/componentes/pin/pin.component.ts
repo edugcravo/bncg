@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-pin',
@@ -12,7 +14,7 @@ export class PinComponent {
 
   formulario!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router, ) { }
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
@@ -27,8 +29,8 @@ export class PinComponent {
       console.log(this.formulario.value);
       this.loginService.login(this.formulario.value).then((data: any) => {
         console.log(data);
-        if(data.token){
-          // this.router.navigate(['/favorecido']);
+        if(data.access_token){
+         this.router.navigate(['/proposta']);
         }else{
           return
         }
