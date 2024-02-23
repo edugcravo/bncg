@@ -23,11 +23,11 @@
       </div>
 
       <div class="form-group">
-          <input type="text" placeholder="Número:" formControlName="numero" [ngClass]="{'invalid-field': formulario.get('numero')?.invalid && formulario.get('numero')?.touched}">
+          <input type="number" placeholder="Número:" formControlName="numero" [ngClass]="{'invalid-field': formulario.get('numero')?.invalid && formulario.get('numero')?.touched}">
       </div>
 
       <div class="form-group">
-          <input type="text" placeholder="CEP:" formControlName="cep" [ngClass]="{'invalid-field': formulario.get('cep')?.invalid && formulario.get('cep')?.touched}">
+          <input type="text" (input)="applyCepMask($event)" placeholder="CEP:" formControlName="cep" [ngClass]="{'invalid-field': formulario.get('cep')?.invalid && formulario.get('cep')?.touched}">
       </div>
 
       <div class="form-group">

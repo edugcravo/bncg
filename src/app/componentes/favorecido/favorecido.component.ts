@@ -21,7 +21,7 @@ export class FavorecidoComponent implements OnInit {
       favorecido: ['', Validators.required],
       cpf_cnpj: ['', Validators.required],
       endereco: ['', Validators.required],
-      numero: ['', Validators.required],
+      numero: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       cidade: ['', Validators.required],
       uf: ['', Validators.required],
       cep: ['', Validators.required],
@@ -38,6 +38,11 @@ export class FavorecidoComponent implements OnInit {
     cpf_cnpj = cpf_cnpj.replace(/\-/g, '');
     cpf_cnpj = cpf_cnpj.replace(/\//g, '');
     this.formulario.controls['cpf_cnpj'].setValue(cpf_cnpj);
+
+    //retirar traços do cep
+    let cep = this.formulario.value.cep;
+    cep = cep.replace(/\-/g, '');
+    this.formulario.controls['cep'].setValue(cep);
 
     console.log(this.formulario.value);
 
@@ -113,5 +118,14 @@ export class FavorecidoComponent implements OnInit {
 
     event.target.value = value;
 
+  }
+
+
+  applyCepMask(event: any) {
+    let value = event.target.value;
+    // aplicar amscara de cpf ou cnpj
+    value = value.replace(/\D/g, '');
+    value = value.replace(/(\d{5})(\d)/, '$1-$2');
+    event.target.value = value;
   }
 }
