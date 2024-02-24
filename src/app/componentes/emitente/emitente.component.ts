@@ -62,6 +62,7 @@ export class EmitenteComponent implements OnInit{
           })
           //resetar form
           this.formulario.reset();
+          this.listarFavorecidos()
         }
       });
     } else {

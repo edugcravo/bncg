@@ -35,8 +35,11 @@ export class PropostaComponent implements OnInit {
       senha: ['', Validators.required],
     });
 
-    this.recebeEmitente()
-    this.recebeFavorecido()
+    setTimeout(() => {
+      this.recebeEmitente()
+      this.recebeFavorecido()
+    }, 500);
+
   }
 
   submitForm() {
@@ -72,7 +75,8 @@ export class PropostaComponent implements OnInit {
 
   recebeEmitente(){
     this.emitenteService.retornaEmitente().subscribe((data: any) => {
-      this.emitente = data.result;
+      console.log(data)
+      this.emitente = data?.result;
     })
   }
 
