@@ -67,13 +67,6 @@ input , select{
   border-color: red !important;
 }
 
-.tabela{
-    border-radius: 8px; /* Arredondar as bordas da linha */
-    overflow: hidden; /* Para cortar as pontas das bordas arredondadas */
-    margin-bottom: 80px;
-    margin-top: 80px;
-}
-
 
 table {
 color: #292929;
@@ -108,7 +101,7 @@ background-color: #f8f8f8;
 
   .titu h1{
     text-align: center;
-    font-size: 30px;
+    font-size: 28px;
     padding-top: 10px;
     padding-bottom: 10px;
   }
@@ -122,4 +115,5 @@ background-color: #f8f8f8;
 ::ng-deep nz-pagination{
   display: flex !important;
   justify-content: center !important;
+  padding: 15px !important;
 }

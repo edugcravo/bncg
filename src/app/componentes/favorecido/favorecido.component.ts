@@ -69,10 +69,13 @@ export class FavorecidoComponent implements OnInit {
   }
 
   favorecidos: any;
+  favorecidoPaginado: any[] = [];
 
   listarFavorecidos(){
     this.favorecidoService.retornaFavorecidos().subscribe((data: any) => {
       this.favorecidos = data.result;
+
+      this.favorecidoPaginado = this.paginarDados(this.favorecidos, 1, this.pageSize)
       console.log(data);
     })
   }
@@ -127,5 +130,22 @@ export class FavorecidoComponent implements OnInit {
     value = value.replace(/\D/g, '');
     value = value.replace(/(\d{5})(\d)/, '$1-$2');
     event.target.value = value;
+  }
+
+
+  // Propriedades da tabela e da paginação
+  currentPage = 1;
+  pageSize = 5;
+
+
+  paginarDados(data: any[], page: number, pageSize: number): any[] {
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    return data.slice(startIndex, endIndex);
+  }
+
+  onPageChange(pageIndex: number) {
+    this.currentPage = pageIndex;
+    this.favorecidoPaginado = this.paginarDados(this.favorecidos, pageIndex, this.pageSize);
   }
 }

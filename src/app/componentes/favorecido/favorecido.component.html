@@ -84,7 +84,7 @@
 
         <div class="table">
 
-          <nz-table #sortTable [nzData]="favorecidos" nzTableLayout="fixed">
+          <nz-table #sortTable [nzData]="favorecidos" nzTableLayout="fixed" [nzShowPagination]="false">
             <thead>
               <tr>
                 <th>Favorecido</th>
@@ -100,6 +100,9 @@
               </tr>
             </tbody>
           </nz-table>
+
+          <nz-pagination [nzPageSize]="5" [nzTotal]="favorecidos?.length" (nzPageIndexChange)="onPageChange($event)">
+          </nz-pagination>
 
         </div>
       </div>

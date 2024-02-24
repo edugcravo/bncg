@@ -11,13 +11,11 @@
     padding-top: 50px;
 }
 
-.conteudo_tabela{
-  width: 100%;
-}
 
 .conteudo_tabela h1{
   font-size: 28px;
-  margin-bottom: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   text-align: center;
 }
 
@@ -28,9 +26,6 @@
   width: 100%;
 }
 
-.cadastro{
-  padding-bottom: 80px;
-}
 
 form{
     display: grid;
@@ -75,14 +70,10 @@ form{
 
 
 .tabela{
-    margin-bottom: 80px;
     display: flex;
     justify-content: center;
 }
 
-.table{
-  width: 50%;
-}
 
 
 th{
@@ -109,3 +100,17 @@ th, td {
   border-color: red !important;
 }
 
+.conteudo_tabela{
+  width: 90%;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+::ng-deep nz-pagination{
+  display: flex !important;
+  justify-content: center !important;
+  padding: 15px !important;
+}
