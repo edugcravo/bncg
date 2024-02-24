@@ -28,6 +28,8 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 
 registerLocaleData(en);
@@ -58,7 +60,9 @@ registerLocaleData(en);
     NzMessageModule,
     NzTableModule,
     NzDividerModule,
-    NzPaginationModule
+    NzPaginationModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

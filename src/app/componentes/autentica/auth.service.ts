@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/services/shared.service';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-constructor(private http: HttpClient, private router: Router) { }
+constructor(private http: HttpClient, private router: Router, private sharedService:SharedService) { }
 
 url = environment.apiUrl
 
@@ -41,6 +42,11 @@ isLoggedIn(): boolean {
 
 logout(){
   localStorage.removeItem('token');
+  localStorage.removeItem('ad');
+  //avisasr pro componente menu-superior que o usuario deslogou
+
+  this.sharedService.setAdminStatus(false);
+
   this.router.navigate(['/pin']);
   }
 

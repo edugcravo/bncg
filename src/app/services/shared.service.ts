@@ -17,4 +17,9 @@ constructor(private http: HttpClient) { }
     'Accept-Enconding': 'gzip'
   });
 
+  private adminStatus = new Subject<boolean>();
+
+  setAdminStatus(admin: boolean) {
+    this.adminStatus.next(admin);
+  }
 }

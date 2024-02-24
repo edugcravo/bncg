@@ -18,13 +18,20 @@ export class MenuSuperiorComponent implements OnInit {
   }
 
   usuarioLogado: any = false;
+  admin: any = false;
 
   ngOnInit() {
     this.verificaUsuarioLogado()
+    this.verificaAdmin()
   }
 
   verificaUsuarioLogado(){
     localStorage.getItem('token') ? this.usuarioLogado = true : this.usuarioLogado = false;
+    this.atualizaAdminStatus();
+  }
+
+  verificaAdmin(){
+    this.atualizaAdminStatus();
   }
 
   scrollToContato() {
@@ -51,5 +58,9 @@ export class MenuSuperiorComponent implements OnInit {
 
   deslogar(){
     this.authService.logout();
+  }
+
+  atualizaAdminStatus() {
+    localStorage.getItem('ad') ? this.admin = true : this.admin = false;
   }
 }

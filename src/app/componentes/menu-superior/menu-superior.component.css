@@ -77,3 +77,13 @@
     }
 
 }
+
+::ng-deep mat-icon{
+    color: white !important;
+    cursor: pointer !important;
+}
+
+.menu-button{
+  display: flex;
+  align-items: center;
+}
