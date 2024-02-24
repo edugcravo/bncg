@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CartaService } from 'src/app/services/carta.service';
 import { EmitenteService } from 'src/app/services/emitente.service';
 import { FavorecidoService } from 'src/app/services/favorecido.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-proposta',
@@ -44,7 +45,25 @@ export class PropostaComponent implements OnInit {
       // Lógica para enviar os dados do formulário
       this.cartaService.enviaCarta(this.formGroup.value).subscribe((data: any) => {
         console.log(data);
+        if(data.status == 200){
+        Swal.fire({
+          title: 'Proposta cadastrada com sucesso!',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.formGroup.reset();
+        }else{
+          Swal.fire({
+            title: 'Erro ao cadastrar proposta!',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
       });
+    }else{
+      this.formGroup.markAllAsTouched();
     }
   }
 

@@ -104,3 +104,8 @@ th, td {
 .largura-celula{
   width: 70px;
 }
+
+.invalid-field {
+  border-color: red !important;
+}
+

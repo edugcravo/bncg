@@ -80,8 +80,15 @@
     font-size: 14px;
   }
 
+  .invalid-field {
+    border-color: red !important;
+  }
+
+
   @media (max-width: 600px) {
     form {
       grid-template-columns: 1fr;
     }
   }
+
+

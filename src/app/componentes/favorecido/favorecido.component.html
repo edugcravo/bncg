@@ -10,12 +10,11 @@
 
       <form [formGroup]="formulario">
         <div class="form-group">
-          <input type="text" class="form-control"  formControlName="favorecido" placeholder="Favorecido:">
+          <input type="text" class="form-control"  formControlName="favorecido" placeholder="Favorecido:" [ngClass]="{'invalid-field': formulario.get('favorecido')?.invalid && formulario.get('favorecido')?.touched}">
         </div>
 
         <div class="form-group">
-          <input type="text" class="form-control" formControlName="cpf_cnpj"
-           placeholder="CPF/CNPJ:" (input)="applyCpfCnpjMask($event)" maxlength="18" />
+          <input type="text" class="form-control" formControlName="cpf_cnpj" placeholder="CPF/CNPJ:" (input)="applyCpfCnpjMask($event)" maxlength="18"  [ngClass]="{'invalid-field': formulario.get('cpf_cnpj')?.invalid && formulario.get('cpf_cnpj')?.touched}"/>
         </div>
 
         <div class="form-group">
