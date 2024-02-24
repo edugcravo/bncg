@@ -38,11 +38,14 @@ export class PropostaComponent implements OnInit {
     setTimeout(() => {
       this.recebeEmitente()
       this.recebeFavorecido()
-    }, 500);
+    }, 900);
 
   }
 
+  carregando: boolean = false;
+
   submitForm() {
+    this.carregando = true;
     console.log(this.formGroup.value);
     if (this.formGroup.valid) {
       // Lógica para enviar os dados do formulário
@@ -55,7 +58,8 @@ export class PropostaComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
-        this.formGroup.reset();
+        // this.formGroup.reset();
+        this.carregando = false;
         }else{
           Swal.fire({
             title: 'Erro ao cadastrar proposta!',

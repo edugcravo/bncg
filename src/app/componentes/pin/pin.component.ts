@@ -34,7 +34,7 @@ export class PinComponent {
         console.log(data);
         if(data.access_token){
           this.message.create('success','login efetuado com sucesso!');
-         this.router.navigate(['/proposta']);
+          this.router.navigate(['/proposta']);
         }else{
           if(data.data == 401){
             this.carregando = false;

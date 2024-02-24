@@ -23,7 +23,9 @@ export class LoginService {
     console.log(body)
     return new Promise(resolve => {
       this.http.post(this.url + '/login/login', body, { headers: this.headers }).subscribe((data: any) => {
+        console.log(data)
         localStorage.setItem('token', data.access_token);
+        localStorage.setItem('ad', data.admin);
         resolve(data)
       })
     })
