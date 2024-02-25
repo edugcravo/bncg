@@ -77,7 +77,7 @@ export class EmitenteComponent implements OnInit{
 
   listarFavorecidos(){
     this.emitenteService.retornaEmitente().subscribe((data: any) => {
-      this.emitente = data.result;
+      this.emitente = data?.result;
       // colocar pontos e traços no cpf ou cnpj
       //multiplicar dados por 10 para simular uma lista grande
 

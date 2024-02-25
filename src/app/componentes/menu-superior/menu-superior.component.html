@@ -7,22 +7,22 @@
     <div class="menu">
       <ul>
         <li><a (click)="scrollToService()" routerLink="/home" fragment="servicos" >Serviços</a></li>
-        <li><a href="cadastro">Cadastro</a></li>
+        <li><a routerLink="/cadastro">Cadastro</a></li>
         <li><a (click)="scrollToContato()">Contato</a></li>
         <button class="fale">Fale conosco</button>
-        <a href="pin"><button class="conta">Minha conta</button></a>
+        <a routerLink="/pin"><button class="conta">Minha conta</button></a>
         <img src="assets/imagens/logout.svg" alt="" class="logout" (click)="deslogar()" *ngIf="usuarioLogado">
           <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="menu-button" *ngIf="admin">
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <span>Cadastrar Emitente</span>
+            <button mat-menu-item routerLink="/emitente">
+              <span >Cadastrar Emitente</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item routerLink="/favorecido">
               <span>Cadastra Favorecido</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item routerLink="/proposta">
               <span>Cadastra Proposta</span>
             </button>
             <button mat-menu-item>
