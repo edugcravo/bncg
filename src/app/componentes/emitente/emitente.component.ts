@@ -84,22 +84,22 @@ export class EmitenteComponent implements OnInit{
 
       this.emitentePaginado = this.paginarDados(this.emitente, 1, this.pageSize)
       for(let item of this.emitente){
-        if(item.cpf_cnpj.length <= 14){
-          item.cpf_cnpj = item.cpf_cnpj.replace(/(\d{3})(\d)/, '$1.$2');
-          item.cpf_cnpj = item.cpf_cnpj.replace(/(\d{3})(\d)/, '$1.$2');
-          item.cpf_cnpj = item.cpf_cnpj.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        if(item?.cpf_cnpj.length <= 14){
+          item.cpf_cnpj = item?.cpf_cnpj.replace(/(\d{3})(\d)/, '$1.$2');
+          item.cpf_cnpj = item?.cpf_cnpj.replace(/(\d{3})(\d)/, '$1.$2');
+          item.cpf_cnpj = item?.cpf_cnpj.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
         } else {
-          item.cpf_cnpj = item.cpf_cnpj.replace(/(\d{2})(\d)/, '$1.$2');
-          item.cpf_cnpj = item.cpf_cnpj.replace(/(\d{3})(\d)/, '$1.$2');
-          item.cpf_cnpj = item.cpf_cnpj.replace(/(\d{3})(\d)/, '$1/$2');
-          item.cpf_cnpj = item.cpf_cnpj.replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+          item.cpf_cnpj = item?.cpf_cnpj.replace(/(\d{2})(\d)/, '$1.$2');
+          item.cpf_cnpj = item?.cpf_cnpj.replace(/(\d{3})(\d)/, '$1.$2');
+          item.cpf_cnpj = item?.cpf_cnpj.replace(/(\d{3})(\d)/, '$1/$2');
+          item.cpf_cnpj = item?.cpf_cnpj.replace(/(\d{4})(\d{1,2})$/, '$1-$2');
       }
     }
     })
   }
 
   applyCpfCnpjMask(event: any) {
-    let value = event.target.value;
+    let value = event?.target?.value;
     // aplicar amscara de cpf ou cnpj
     if (value.length <= 14) {
       value = value.replace(/\D/g, '');
