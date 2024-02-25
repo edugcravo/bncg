@@ -1,10 +1,9 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     max-width: unset;
     background-color: #ebebeb;
     border-top: solid 1px rgb(0, 0, 0);
+    min-height: calc(100vh - 80px);
   }
 
   .titulo h1{
@@ -12,16 +11,18 @@
   }
 
   .conteudo {
-    width: 100%;
-    max-width: 800px;
-    min-width: 500px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .bloco_conteudo{
+    max-width: 750px;
     padding: 20px;
-    margin-top: 20px; /* Adicionando margem superior */
     border-radius: 10px;
     background-color: #f4f4f4;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 100px;
-    margin-top: 50px;
+    width: 80%;
   }
 
   form {

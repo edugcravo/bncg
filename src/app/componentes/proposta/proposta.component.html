@@ -1,103 +1,107 @@
-<div class="tudo">
+
   <app-menu-superior class="menu"></app-menu-superior>
   <div class="container">
 
     <div class="conteudo">
 
-    <div class="titulo">
-      <h1>
-        Proposta
-      </h1>
-    </div>
+      <div class="bloco_conteudo">
 
-      <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
 
-        <div class="emitente">
-          <label>Escolha o emitente:</label>
-          <select formControlName="emitente" [ngClass]="{'invalid-field': formGroup.get('emitente')?.invalid && formGroup.get('emitente')?.touched}">
-            <option [value]="item.emitente" *ngFor="let item of emitente">{{item.emitente}}</option>
-          </select>
+        <div class="titulo">
+          <h1>
+            Proposta
+          </h1>
         </div>
 
-        <div class="favorecido">
-          <label>Escolha o favorecido:</label>
-          <select formControlName="favorecido" [ngClass]="{'invalid-field': formGroup.get('favorecido')?.invalid && formGroup.get('favorecido')?.touched}">
-            <option [value]="item.favorecido" *ngFor="let item of favorecido">{{item.favorecido}}</option>
-          </select>
-        </div>
+        <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
 
-        <div class="numero">
-          <label>Número do documento:</label>
-          <input type="text" formControlName="numeroDocumento" [ngClass]="{'invalid-field': formGroup.get('numeroDocumento')?.invalid && formGroup.get('numeroDocumento')?.touched}">
-        </div>
+          <div class="emitente">
+            <label>Escolha o emitente:</label>
+            <select formControlName="emitente" [ngClass]="{'invalid-field': formGroup.get('emitente')?.invalid && formGroup.get('emitente')?.touched}">
+              <option [value]="item.emitente" *ngFor="let item of emitente">{{item.emitente}}</option>
+            </select>
+          </div>
 
-        <div class="valor">
-          <label>Valor em R$:</label>
-          <input type="text" formControlName="valor" [ngClass]="{'invalid-field': formGroup.get('valor')?.invalid && formGroup.get('valor')?.touched}">
-        </div>
+          <div class="favorecido">
+            <label>Escolha o favorecido:</label>
+            <select formControlName="favorecido" [ngClass]="{'invalid-field': formGroup.get('favorecido')?.invalid && formGroup.get('favorecido')?.touched}">
+              <option [value]="item.favorecido" *ngFor="let item of favorecido">{{item.favorecido}}</option>
+            </select>
+          </div>
 
-        <div class="extenso">
-          <label>Valor por extenso:</label>
-          <input type="text" formControlName="valorExtenso" [ngClass]="{'invalid-field': formGroup.get('valorExtenso')?.invalid && formGroup.get('valorExtenso')?.touched}">
-        </div>
+          <div class="numero">
+            <label>Número do documento:</label>
+            <input type="text" formControlName="numeroDocumento" [ngClass]="{'invalid-field': formGroup.get('numeroDocumento')?.invalid && formGroup.get('numeroDocumento')?.touched}">
+          </div>
 
-        <div class="dataInicio">
-          <label>Data de início:</label>
-          <input type="date" formControlName="dataInicio" [ngClass]="{'invalid-field': formGroup.get('dataInicio')?.invalid && formGroup.get('dataInicio')?.touched}">
-        </div>
+          <div class="valor">
+            <label>Valor em R$:</label>
+            <input type="text" formControlName="valor" [ngClass]="{'invalid-field': formGroup.get('valor')?.invalid && formGroup.get('valor')?.touched}">
+          </div>
 
-        <div class="dataFinalizacao">
-          <label>Data de finalização:</label>
-          <input type="date" formControlName="dataFinalizacao" [ngClass]="{'invalid-field': formGroup.get('dataFinalizacao')?.invalid && formGroup.get('dataFinalizacao')?.touched}">
-        </div>
+          <div class="extenso">
+            <label>Valor por extenso:</label>
+            <input type="text" formControlName="valorExtenso" [ngClass]="{'invalid-field': formGroup.get('valorExtenso')?.invalid && formGroup.get('valorExtenso')?.touched}">
+          </div>
 
-        <div class="dataEmissao">
-          <label>Data de emissão:</label>
-          <input type="date" formControlName="dataEmissao" [ngClass]="{'invalid-field': formGroup.get('dataEmissao')?.invalid && formGroup.get('dataEmissao')?.touched}">
-        </div>
+          <div class="dataInicio">
+            <label>Data de início:</label>
+            <input type="date" formControlName="dataInicio" [ngClass]="{'invalid-field': formGroup.get('dataInicio')?.invalid && formGroup.get('dataInicio')?.touched}">
+          </div>
 
-        <div class="valorCobrado">
-          <label>Valor cobrado:</label>
-          <input type="text" formControlName="valorCobrado" [ngClass]="{'invalid-field': formGroup.get('valorCobrado')?.invalid && formGroup.get('valorCobrado')?.touched}">
-        </div>
+          <div class="dataFinalizacao">
+            <label>Data de finalização:</label>
+            <input type="date" formControlName="dataFinalizacao" [ngClass]="{'invalid-field': formGroup.get('dataFinalizacao')?.invalid && formGroup.get('dataFinalizacao')?.touched}">
+          </div>
 
-        <div class="vencimento">
-          <label>Vencimento:</label>
-          <input type="date" formControlName="vencimento" [ngClass]="{'invalid-field': formGroup.get('vencimento')?.invalid && formGroup.get('vencimento')?.touched}">
-        </div>
+          <div class="dataEmissao">
+            <label>Data de emissão:</label>
+            <input type="date" formControlName="dataEmissao" [ngClass]="{'invalid-field': formGroup.get('dataEmissao')?.invalid && formGroup.get('dataEmissao')?.touched}">
+          </div>
 
-        <div class="status">
-          <label>Status pagamento:</label>
-          <select formControlName="statusPagamento" [ngClass]="{'invalid-field': formGroup.get('statusPagamento')?.invalid && formGroup.get('statusPagamento')?.touched}">
-            <option value="Ativo">Ativo</option>
-            <option value="Inativo">Inativo</option>
-          </select>
-        </div>
+          <div class="valorCobrado">
+            <label>Valor cobrado:</label>
+            <input type="text" formControlName="valorCobrado" [ngClass]="{'invalid-field': formGroup.get('valorCobrado')?.invalid && formGroup.get('valorCobrado')?.touched}">
+          </div>
 
-        <div class="finalidade">
-          <label>Finalidade do objeto:</label>
-          <input type="text" formControlName="finalidade" [ngClass]="{'invalid-field': formGroup.get('finalidade')?.invalid && formGroup.get('finalidade')?.touched}">
-        </div>
+          <div class="vencimento">
+            <label>Vencimento:</label>
+            <input type="date" formControlName="vencimento" [ngClass]="{'invalid-field': formGroup.get('vencimento')?.invalid && formGroup.get('vencimento')?.touched}">
+          </div>
 
-        <div class="finalidadeMeio">
-          <label>Finalidade do Objeto no meio do texto:</label>
-          <input type="text" formControlName="finalidadeMeio" [ngClass]="{'invalid-field': formGroup.get('finalidadeMeio')?.invalid && formGroup.get('finalidadeMeio')?.touched}">
-        </div>
+          <div class="status">
+            <label>Status pagamento:</label>
+            <select formControlName="statusPagamento" [ngClass]="{'invalid-field': formGroup.get('statusPagamento')?.invalid && formGroup.get('statusPagamento')?.touched}">
+              <option value="Ativo">Ativo</option>
+              <option value="Inativo">Inativo</option>
+            </select>
+          </div>
 
-        <div class="assina">
-          <label>Quem assina a proposta?</label>
-          <input type="text" formControlName="assinaProposta" [ngClass]="{'invalid-field': formGroup.get('assinaProposta')?.invalid && formGroup.get('assinaProposta')?.touched}">
-        </div>
+          <div class="finalidade">
+            <label>Finalidade do objeto:</label>
+            <input type="text" formControlName="finalidade" [ngClass]="{'invalid-field': formGroup.get('finalidade')?.invalid && formGroup.get('finalidade')?.touched}">
+          </div>
 
-        <div class="senha">
-          <label>Senha:</label>
-          <input type="password" formControlName="senha" [ngClass]="{'invalid-field': formGroup.get('senha')?.invalid && formGroup.get('senha')?.touched}">
-        </div>
+          <div class="finalidadeMeio">
+            <label>Finalidade do Objeto no meio do texto:</label>
+            <input type="text" formControlName="finalidadeMeio" [ngClass]="{'invalid-field': formGroup.get('finalidadeMeio')?.invalid && formGroup.get('finalidadeMeio')?.touched}">
+          </div>
 
-        <button type="submit" *ngIf="!carregando">Enviar</button>
-        <button type="submit" *ngIf="carregando" disabled>Enviando <nz-spin nzSimple></nz-spin> </button>
+          <div class="assina">
+            <label>Quem assina a proposta?</label>
+            <input type="text" formControlName="assinaProposta" [ngClass]="{'invalid-field': formGroup.get('assinaProposta')?.invalid && formGroup.get('assinaProposta')?.touched}">
+          </div>
 
-      </form>
+          <div class="senha">
+            <label>Senha:</label>
+            <input type="password" formControlName="senha" [ngClass]="{'invalid-field': formGroup.get('senha')?.invalid && formGroup.get('senha')?.touched}">
+          </div>
+
+          <button type="submit" *ngIf="!carregando">Enviar</button>
+          <button type="submit" *ngIf="carregando" disabled>Enviando <nz-spin nzSimple></nz-spin> </button>
+
+        </form>
+      </div>
     </div>
   </div>
-</div>
+

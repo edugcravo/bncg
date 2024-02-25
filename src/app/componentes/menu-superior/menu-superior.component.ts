@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { SharedService } from 'src/app/services/shared.service';
 import { AuthService } from '../autentica/auth.service';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -57,7 +58,24 @@ export class MenuSuperiorComponent implements OnInit {
   }
 
   deslogar(){
-    this.authService.logout();
+    Swal.fire({
+      title: "Deseja sair?",
+      showDenyButton: true,
+      confirmButtonText: "Sair",
+      denyButtonText: `Cancelar`,
+      customClass: {
+        confirmButton: "botao-sair",
+        denyButton: "botao-cancelar"
+      },
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.authService.logout();
+      } else if (result.isDenied) {
+        return;
+      }
+    });
+
   }
 
   atualizaAdminStatus() {

@@ -87,3 +87,18 @@
   display: flex;
   align-items: center;
 }
+
+::ng-deep .botao-sair {
+  background-color: #C8AE7B !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .botao-cancelar {
+  background-color: #080C22 !important;
+  color: white !important;
+}
+
+::ng-deep .botao-cancelar:hover {
+  box-shadow: none !important;
+}
