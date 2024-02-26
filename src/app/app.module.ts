@@ -32,6 +32,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { ListaComponent } from './componentes/lista/lista.component';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { ListaDePropostasComponent } from './componentes/lista-de-propostas/lista-de-propostas.component';
 
 registerLocaleData(en);
 
@@ -49,6 +50,7 @@ registerLocaleData(en);
     PinComponent,
     EmitenteComponent,
     ListaComponent,
+    ListaDePropostasComponent,
 
   ],
   imports: [

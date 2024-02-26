@@ -10,7 +10,7 @@ import { PropostaComponent } from './componentes/proposta/proposta.component';
 import { PinComponent } from './componentes/pin/pin.component';
 import { EmitenteComponent } from './componentes/emitente/emitente.component';
 import { AuthGuard } from './componentes/autentica/AuthGuard';
-import { ListaComponent } from './componentes/lista/lista.component';
+import { ListaDePropostasComponent } from './componentes/lista-de-propostas/lista-de-propostas.component';
 
 
 
@@ -24,7 +24,7 @@ const APP_ROUTES: Routes = [
   { path: 'proposta', component: PropostaComponent, canActivate: [AuthGuard]},
   { path: 'pin', component: PinComponent},
   { path: 'emitente', component: EmitenteComponent, canActivate: [AuthGuard]},
-  { path: 'lista', component: ListaComponent, canActivate: [AuthGuard]},
+  { path: 'lista-de-propostas', component: ListaDePropostasComponent, canActivate: [AuthGuard]},
 ];
 
 
