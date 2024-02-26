@@ -30,6 +30,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import { ListaComponent } from './componentes/lista/lista.component';
 
 
 registerLocaleData(en);
@@ -47,6 +48,7 @@ registerLocaleData(en);
     PropostaComponent,
     PinComponent,
     EmitenteComponent,
+    ListaComponent,
 
   ],
   imports: [

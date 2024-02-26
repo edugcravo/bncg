@@ -1,0 +1,28 @@
+<app-menu-superior></app-menu-superior>
+<div class="container">    
+    <div class="conteudo">
+        <div class="tabela">
+            <h1>Lista de propostas</h1>
+            <div class="">
+                <nz-table #sortTable nzTableLayout="fixed" [nzShowPagination]="false" class="table">
+                <thead>
+                    <tr>
+                    <th>Proposta Nº</th>
+                    <th>Emitente</th>
+                    <th class="largura-celula">Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="">
+                    <td></td>
+                    <td></td>
+                    <td class="largura-celula"><img src="assets/imagens/editar-texto.png" alt=""></td>
+                    </tr>
+                </tbody>
+                </nz-table>
+                <nz-pagination [nzPageSize]="5">
+                </nz-pagination>
+            </div>
+        </div>
+    </div>
+</div>

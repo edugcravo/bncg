@@ -1,0 +1,47 @@
+.container{
+    display: flex;
+    justify-content: center;
+    max-width: unset; 
+    height: calc(100vh - 80px);
+}
+
+.conteudo{
+    display: flex;
+    justify-content: center;
+    max-width: unset;
+    background-color: #ebebeb;  
+}
+
+.conteudo h1{
+    font-size: 28px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+  }
+
+.tabela{
+    display: flex;
+    width: 90%;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+    margin-top: 100px;
+    flex-direction: column;
+}
+
+.largura-celula{
+    width: 70px;
+  }
+
+.table{
+    height: 52vh;
+}
+
+th{
+    border-bottom: solid 1px rgb(83, 83, 83);
+}
+
+th, td {
+    padding: 15px;
+}
