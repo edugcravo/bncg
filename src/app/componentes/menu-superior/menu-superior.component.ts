@@ -24,6 +24,7 @@ export class MenuSuperiorComponent implements OnInit {
   ngOnInit() {
     this.verificaUsuarioLogado()
     this.verificaAdmin()
+    this.verificarQualRota()
   }
 
   verificaUsuarioLogado(){
@@ -83,5 +84,37 @@ export class MenuSuperiorComponent implements OnInit {
     localStorage.getItem('ad') ? this.admin = true : this.admin = false;
     //passar pro pin que foi desdeslogado
     this.sharedService.setAdminStatus(this.admin);
+  }
+
+  redirecionarParaWhatsapp() {
+    // Número de telefone do WhatsApp (substitua pelo seu número)
+    const numeroWhatsapp = '5541999999999';
+    // Mensagem pré-pronta
+    const mensagem = 'Olá, gostaria de saber mais sobre os serviços da empresa';
+
+    // Cria o link para o WhatsApp com o número e a mensagem
+    const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(mensagem)}`;
+
+    // Redireciona para o WhatsApp
+    window.open(url, '_blank');
+  }
+
+  rota: any = false;
+
+  verificarQualRota(){
+    if(this.router.url === '/cadastro'){
+      console.log('sim')
+      this.rota = true;
+    }
+  }
+
+  visible = false;
+
+  open(): void {
+    this.visible = true;
+  }
+
+  close(): void {
+    this.visible = false;
   }
 }

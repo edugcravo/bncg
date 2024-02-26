@@ -1,7 +1,8 @@
-<div class="container">
+<div class="container" [ngClass]="{'menu-branco': rota}">
   <div class="conteudo">
     <div class="logo" (click)="redirecionaHome()">
-      <img src="assets/imagens/logo.png" alt="" >
+      <img src="assets/imagens/logo.png" alt="" *ngIf="!rota">
+      <img src="assets/imagens/menu-branco.png" alt="" *ngIf="rota">
     </div>
 
     <div class="menu">
@@ -32,7 +33,27 @@
       </ul>
     </div>
 
-    <button class="hamburguer">☰</button>
+    <button class="hamburguer" (click)="open()" [ngClass]="{'alterarCor': rota}">☰</button>
+
+    <nz-drawer
+      [nzClosable]="false"
+      [nzVisible]="visible"
+      nzPlacement="right"
+      nzTitle="Menu"
+      (nzOnClose)="close()"
+      [nzWidth]="320"
+    >
+      <ng-container *nzDrawerContent>
+        <div class="conteudo_hamburguer">
+          <a routerLink="/home">Home</a>
+          <a routerLink="/servicos">Serviços</a>
+          <a routerLink="/cadastro">Cadastro</a>
+          <a routerLink="/contato">Contato</a>
+          <a (click)="redirecionarParaWhatsapp()">Fale conosco</a>
+          <button class="fale" routerLink="/pin">Minha conta</button>
+        </div>
+      </ng-container>
+    </nz-drawer>
 
   </div>
 </div>

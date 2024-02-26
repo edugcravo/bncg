@@ -31,7 +31,7 @@ import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { ListaComponent } from './componentes/lista/lista.component';
-
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 
 registerLocaleData(en);
 
@@ -64,7 +64,8 @@ registerLocaleData(en);
     NzDividerModule,
     NzPaginationModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    NzDrawerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

@@ -73,9 +73,13 @@
 
     .hamburguer{
         display: unset;
-        color: white;
     }
 
+
+}
+
+.alterarCor{
+    color: #080C22 !important;
 }
 
 ::ng-deep mat-icon{
@@ -101,4 +105,33 @@
 
 ::ng-deep .botao-cancelar:hover {
   box-shadow: none !important;
+}
+
+.menu-branco{
+  background-color: white;
+  border-bottom: 0.4px solid #D8D8D8
+}
+
+.menu-branco a{
+    color: #080C22 !important;
+}
+
+nz-drawer{
+    display: none;
+}
+
+.conteudo_hamburguer{
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo_hamburguer a{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 0.4px solid #D8D8D8;
+}
+
+.conteudo_hamburguer a:hover{
+    background-color: #c6c6c6;
+    color: white;
 }

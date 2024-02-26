@@ -52,3 +52,20 @@ select{
     background-color: #080C22;
     color: white;
 }
+
+@media (max-width: 1015px) {
+   .conteudo{
+    flex-direction: column;
+    width: 100%;
+   }
+
+   .texto{
+    width: 100%;
+    padding: 0 15px 0px 15px;
+   }
+
+   
+   .download{
+    flex-direction: column;
+    }
+}
