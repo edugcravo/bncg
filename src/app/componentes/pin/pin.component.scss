@@ -17,6 +17,24 @@
     height: calc(100vh - 221px);
 }
 
+.bloco_logado{
+  border-top: solid 1px #D8D8D8;
+    height: calc(100vh - 221px);
+    background-color: #080C22;
+}
+
+.bloco_logado p{
+  color: white;
+}
+
+.bloco_admin{
+  display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 h1{
     font-size: 40px;
     color: #FFFFFF;

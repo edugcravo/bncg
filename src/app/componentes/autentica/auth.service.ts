@@ -25,6 +25,7 @@ verificarLogado() {
   return new Promise((resolve, reject) => {
     this.http.get(this.url + '/login/users/me', { headers: this.headers }).subscribe(
       (data) => {
+        console.log(data)
         resolve(data);
       },
 
@@ -46,6 +47,7 @@ logout(){
   //avisasr pro componente menu-superior que o usuario deslogou
 
   this.sharedService.setAdminStatus(false);
+  this.sharedService.setUserStatus(false);
 
   this.router.navigate(['/pin']);
   }

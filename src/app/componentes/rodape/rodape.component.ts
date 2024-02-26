@@ -17,9 +17,19 @@ export class RodapeComponent implements OnInit {
     this.router.navigate(['/home']).then(() => {
       const contatoElement = document.getElementById(rota);
       if (contatoElement) {
-        contatoElement.scrollIntoView({ behavior: 'smooth' });
+        contatoElement.scrollIntoView({ behavior: 'instant' });
       }
     });
+  }
+
+  scrollToCadastro(){
+    this.router.navigate(['/cadastro']).then(() => {
+      const contatoElement = document.getElementById('cadastro');
+      if (contatoElement) {
+        contatoElement.scrollIntoView({ behavior: 'instant' });
+      }
+    });
+  
   }
 
 }

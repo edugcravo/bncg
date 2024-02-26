@@ -28,6 +28,7 @@ export class MenuSuperiorComponent implements OnInit {
 
   verificaUsuarioLogado(){
     localStorage.getItem('token') ? this.usuarioLogado = true : this.usuarioLogado = false;
+    this.sharedService.setUserStatus(this.usuarioLogado);
     this.atualizaAdminStatus();
   }
 
@@ -39,7 +40,7 @@ export class MenuSuperiorComponent implements OnInit {
     this.router.navigate(['/home']).then(() => {
       const contatoElement = document.getElementById('contato');
       if (contatoElement) {
-        contatoElement.scrollIntoView({ behavior: 'smooth' });
+        contatoElement.scrollIntoView({ behavior: 'instant' });
       }
     });
   }
@@ -48,7 +49,7 @@ export class MenuSuperiorComponent implements OnInit {
     this.router.navigate(['/home']).then(() => {
       const contatoElement = document.getElementById('servicos');
       if (contatoElement) {
-        contatoElement.scrollIntoView({ behavior: 'smooth' });
+        contatoElement.scrollIntoView({ behavior:  'instant'});
       }
     });
   }
@@ -80,5 +81,7 @@ export class MenuSuperiorComponent implements OnInit {
 
   atualizaAdminStatus() {
     localStorage.getItem('ad') ? this.admin = true : this.admin = false;
+    //passar pro pin que foi desdeslogado
+    this.sharedService.setAdminStatus(this.admin);
   }
 }

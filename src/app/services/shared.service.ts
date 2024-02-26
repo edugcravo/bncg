@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -18,8 +18,25 @@ constructor(private http: HttpClient) { }
   });
 
   private adminStatus = new Subject<boolean>();
+  private userStatus = new Subject<boolean>();
+
+  //verificar se o usuario é admin
 
   setAdminStatus(admin: boolean) {
     this.adminStatus.next(admin);
+  }
+
+  getAdminStatus(): Observable<boolean> {
+    return this.adminStatus.asObservable();
+  }
+
+  //verificar se o usuario esta logado
+
+  setUserStatus(user: boolean) {
+    this.userStatus.next(user);
+  }
+
+  getUserStatus(): Observable<boolean> {
+    return this.userStatus.asObservable();
   }
 }

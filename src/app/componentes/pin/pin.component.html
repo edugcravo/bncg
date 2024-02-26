@@ -1,7 +1,7 @@
 <app-menu-superior></app-menu-superior>
 
 <div class="container">
-  <div class="conteudo">
+  <div class="conteudo" *ngIf="!logado">
     <h1 class="titulo">Acesse sua conta</h1>
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
@@ -13,8 +13,21 @@
 
 
     </form>
+  </div>
 
-</div>
+  <div class="bloco_logado" *ngIf="logado">
+    <div class="bloco_admin" *ngIf="logado && admin">
+      <h1 class="titulo">Bem vindo, admin</h1>
+      <p>Seja bem vindo a sua conta, aqui você pode acessar todas as funcionalidades do sistema.</p>
+
+    </div>
+
+    <div class="bloco_user" *ngIf="logado && !admin">
+      <h1 class="titulo">Bem vindo, user</h1>
+      <p>Seja bem vindo a sua conta, aqui você pode acessar todas as funcionalidades do sistema.</p>
+    </div>
+
+  </div>
 </div>
 
 
