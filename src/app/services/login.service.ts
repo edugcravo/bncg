@@ -7,29 +7,27 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginService {
 
-
   constructor(private http: HttpClient) { }
 
-  url = environment.apiUrl
+  url = environment.apiUrl;
 
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    'Accept-Enconding': 'gzip',
-    'Authorization': 'Bearer a7db01243de9e2c43250f6f1825a367efc602db30526e624e45ee20b4394f77b'
+    'Accept-Enconding': 'gzip'
   });
 
-
   login(body: any) {
-    console.log(body)
+    console.log(body);
     return new Promise(resolve => {
       this.http.post(this.url + '/login/login', body, { headers: this.headers }).subscribe((data: any) => {
-        console.log(data)
+        console.log(data);
         localStorage.setItem('token', data.access_token);
         localStorage.setItem('ad', data.admin);
-        resolve(data)
-      })
-    })
+        // Atualiza os headers com o novo token
+        this.headers = this.headers.set('Authorization', 'Bearer ' + data.access_token);
+        resolve(data);
+      });
+    });
   }
-
 
 }

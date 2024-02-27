@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,12 +17,14 @@ constructor(private http: HttpClient) { }
     'Accept-Enconding': 'gzip'
   });
 
-  private adminStatus = new Subject<boolean>();
   private userStatus = new Subject<boolean>();
 
   //verificar se o usuario é admin
 
+  private adminStatus: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   setAdminStatus(admin: boolean) {
+    console.log(admin)
     this.adminStatus.next(admin);
   }
 
@@ -30,13 +32,5 @@ constructor(private http: HttpClient) { }
     return this.adminStatus.asObservable();
   }
 
-  //verificar se o usuario esta logado
 
-  setUserStatus(user: boolean) {
-    this.userStatus.next(user);
-  }
-
-  getUserStatus(): Observable<boolean> {
-    return this.userStatus.asObservable();
-  }
 }

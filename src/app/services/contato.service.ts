@@ -23,4 +23,8 @@ ngOnInit() {
 enviarContato(contato: any){
   return this.http.post(this.url + '/contato/salva', contato, { headers: this.headers })
 }
+
+enviarEmail(contato: any){
+  return this.http.post(this.url + '/contato/send_email', contato, { headers: this.headers })
+}
 }

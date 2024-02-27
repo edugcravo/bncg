@@ -35,10 +35,10 @@ export class PropostaComponent implements OnInit {
       senha: ['', Validators.required],
     });
 
-    setTimeout(() => {
-      this.recebeEmitente()
-      this.recebeFavorecido()
-    }, 900);
+    // setTimeout(() => {
+    //   this.recebeEmitente()
+    //   this.recebeFavorecido()
+    // }, 1000);
 
   }
 
@@ -58,7 +58,7 @@ export class PropostaComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
-        // this.formGroup.reset();
+        this.formGroup.reset();
         this.carregando = false;
         }else{
           Swal.fire({

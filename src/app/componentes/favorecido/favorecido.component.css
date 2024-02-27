@@ -9,6 +9,8 @@
     background-color: #ebebeb;
     gap: 10px;
     padding-top: 50px;
+    min-height: calc(100vh - 80px);
+
 }
 
 

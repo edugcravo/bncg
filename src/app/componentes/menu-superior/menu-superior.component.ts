@@ -22,16 +22,16 @@ export class MenuSuperiorComponent implements OnInit {
   admin: any = false;
 
   ngOnInit() {
-    this.verificaUsuarioLogado()
+    //verifica se ta logado
+    this.authService.getLoginStatus().subscribe(logado => {
+      console.log(logado)
+      this.usuarioLogado = logado;
+    });
     this.verificaAdmin()
     this.verificarQualRota()
   }
 
-  verificaUsuarioLogado(){
-    localStorage.getItem('token') ? this.usuarioLogado = true : this.usuarioLogado = false;
-    this.sharedService.setUserStatus(this.usuarioLogado);
-    this.atualizaAdminStatus();
-  }
+
 
   verificaAdmin(){
     this.atualizaAdminStatus();
@@ -73,6 +73,7 @@ export class MenuSuperiorComponent implements OnInit {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         this.authService.logout();
+        
       } else if (result.isDenied) {
         return;
       }
@@ -81,9 +82,13 @@ export class MenuSuperiorComponent implements OnInit {
   }
 
   atualizaAdminStatus() {
-    localStorage.getItem('ad') ? this.admin = true : this.admin = false;
+
+    if(localStorage.getItem('ad') == 'true'){
+      this.admin = true;
+    }else{
+      this.admin = false;
+    }
     //passar pro pin que foi desdeslogado
-    this.sharedService.setAdminStatus(this.admin);
   }
 
   redirecionarParaWhatsapp() {

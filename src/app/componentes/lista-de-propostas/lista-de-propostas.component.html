@@ -4,35 +4,41 @@
         <div class="tabela">
             <h1 class="titulo">Lista de propostas</h1>
             <div class="conteudo_tabela">
-                <nz-table #sortTable nzTableLayout="fixed" [nzShowPagination]="false" class="table">
+                <nz-table #sortTable nzTableLayout="fixed" [nzData]="proposta" [nzShowPagination]="false" class="table">
                 <thead>
                     <tr>
-                    <th class="larguraId">ID</th>
-                    <th class="larguraEmi">Emitente</th>
-                    <th class="larguraFav">Favorecido</th>
-                    <th class="larguraPin">PIN</th>
-                    <th class="larguraVal">Valor</th>
-                    <th class="larguraValC">Valor Cobrado</th>
-                    <th class="larguraVenc">Vencimento</th>
-                    <th class="larguraStatus">Status</th>
-                    <th class="larguraData">Data de Emissão</th>
-                    <th class="larguraCarta">Carta</th>
-                    <th class="larguraCertif">Certif.</th>
-                    <th class="larguraSubir">Subir Imagem</th>
-                    <th class="larguraUp">Upload</th>
-                    <th class="larguraEdit">Editar</th>
-                    <th class="larguraDelet">Deletar</th>                    
+                        <th class="larguraEmi">Emitente</th>
+                        <th class="larguraFav">Favorecido</th>
+                        <th class="larguraPin">PIN</th>
+                        <th class="larguraVal">Valor</th>
+                        <th class="larguraValC">Valor Cobrado</th>
+                        <th class="larguraVenc">Vencimento</th>
+                        <th class="larguraStatus">Status</th>
+                        <th class="larguraData">Data de Emissão</th>
+                        <th class="larguraCarta">Carta</th>
+                        <th class="larguraCertif">Certif.</th>
+                        <th class="larguraEdit">Editar</th>
+                        <th class="larguraDelet">Deletar</th>                    
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="">
-                    <td></td>
-                    <td></td>
-                    <td class="largura-celula"><img src="assets/imagens/editar-texto.png" alt=""></td>
+                    <tr *ngFor="let item of propostaPaginada">
+                        <td class="larguraEmi">{{ item.emitente }}</td>
+                        <td class="larguraFav">{{ item.favorecido }}</td>
+                        <td>{{ item.numeroDocumento }}</td>
+                        <td>{{ item.valor }}</td>
+                        <td class="larguraValC">{{ item.valorCobrado }}</td>
+                        <td class="larguraVenc">{{ item.vencimento }}</td>
+                        <td>{{ item.statusPagamento }}</td>
+                        <td class="larguraData">{{ item.dataEmissao }}</td>
+                        <td class="largura-celula"><img src="assets/imagens/cartas.png" alt=""></td>
+                        <td class="largura-celula"><img src="assets/imagens/certificado.png" alt=""></td>
+                        <td class="larguraEdit"><img src="assets/imagens/editar-texto.png" alt=""></td>
+                        <td class="larguraDelet"><img src="assets/imagens/editar-texto.png" alt=""></td>
                     </tr>
                 </tbody>
                 </nz-table>
-                <nz-pagination [nzPageSize]="5">
+                <nz-pagination [nzPageSize]="5" [nzTotal]="proposta?.length" (nzPageIndexChange)="onPageChange($event)">
                 </nz-pagination>
             </div>
         </div>

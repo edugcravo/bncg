@@ -22,5 +22,12 @@ headers = new HttpHeaders({
     return this.http.post(this.url + '/carta/cria', carta, {headers: this.headers})
   }
 
+  retornaCartas(){
+    return this.http.get(this.url + '/carta/lista', {headers: this.headers})
+  }
 
+  retornaPropostaPorId(id: any){
+    console.log(id)
+    return this.http.get(this.url + '/carta/carta-certificado/' + id, {responseType: 'blob'});
+}
 }

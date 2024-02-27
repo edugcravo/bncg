@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { SharedService } from 'src/app/services/shared.service';
 import { environment } from 'src/environments/environment';
 
@@ -19,18 +20,24 @@ headers = new HttpHeaders({
   Authorization: 'Bearer ' + localStorage.getItem('token')
 });
 
-verificarLogado() {
+// Método para obter o token armazenado no localStorage
+getToken() {
+  return localStorage.getItem('token');
+}
 
-
-  return new Promise((resolve, reject) => {
-    this.http.get(this.url + '/login/users/me', { headers: this.headers }).subscribe(
-      (data) => {
-        console.log(data)
-        resolve(data);
-      },
-
-    );
+// Método para fazer a solicitação para o endpoint /login/users/me/username
+getUsername() {
+  const token = this.getToken();
+  if (!token) {
+    // Se não houver token, trate de acordo com a sua lógica
+    return throwError('Token não encontrado');
+  }
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Accept-Enconding': 'gzip',
+    'Authorization': 'Bearer ' + token
   });
+  return this.http.get(this.url + '/login/users/me/username', { headers: headers });
 }
 
 
@@ -47,10 +54,24 @@ logout(){
   //avisasr pro componente menu-superior que o usuario deslogou
 
   this.sharedService.setAdminStatus(false);
-  this.sharedService.setUserStatus(false);
-
+  this.notifyLoginStatusChange(false);
   this.router.navigate(['/pin']);
   }
 
 
+  private loginStatusSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  getLoginStatus(): Observable<boolean> {
+    return this.loginStatusSubject.asObservable();
+  }
+
+  notifyLoginStatusChange(status: boolean) {
+    this.loginStatusSubject.next(status);
+  }
+
+  // para escutar o status do login
+  // this.authService.getLoginStatus().subscribe(logado => {
+  //   console.log(logado)
+  //   this.logado = logado;
+  // });
 }

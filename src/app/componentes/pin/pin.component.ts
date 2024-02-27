@@ -5,6 +5,8 @@ import { LoginService } from 'src/app/services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { SharedService } from 'src/app/services/shared.service';
+import { CartaService } from 'src/app/services/carta.service';
+import { AuthService } from '../autentica/auth.service';
 
 
 @Component({
@@ -18,7 +20,7 @@ export class PinComponent {
   admin: any = false;
   logado: any = false;
 
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router, private message: NzMessageService, private sharedService: SharedService ) { }
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router, private message: NzMessageService, private sharedService: SharedService, private cartaService: CartaService, private authService: AuthService ) { }
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
@@ -27,35 +29,46 @@ export class PinComponent {
     });
 
     this.verificaAdmin()
-    this.verificaUsuarioLogado()
 
-
+    
+    this.authService.getLoginStatus().subscribe(logado => {
+      console.log(logado)
+      this.logado = logado;
+    });
   
   }
 
   verificaAdmin(){
     this.sharedService.getAdminStatus().subscribe(admin => {
-      this.admin = admin;
+      console.log(admin)
+
     });
   }
 
-  verificaUsuarioLogado(){
-    this.sharedService.getUserStatus().subscribe((user: any) => {
-      this.logado = user;
-    });
-  }
 
 
   carregando: boolean = false;
+  username: any;
+
 
   onSubmit() {
     this.carregando = true;
     if (this.formulario.valid) {
       this.loginService.login(this.formulario.value).then((data: any) => {
         if(data.access_token){
+          this.authService.notifyLoginStatusChange(true);
+          this.username = data.username;
           this.message.create('success','login efetuado com sucesso!');
-          this.sharedService.setUserStatus(true);
-          this.router.navigate(['/proposta']);
+          this.carregando = false;
+          //resetar form
+          this.formulario.reset();
+          if(data.admin == true){
+            this.sharedService.setAdminStatus(true);
+            this.router.navigate(['/proposta']);
+          }else{
+            this.logado = true;
+          }
+          
         }else{
           if(data.data == 401){
             this.carregando = false;
@@ -72,5 +85,11 @@ export class PinComponent {
     }
   }
 
+  
+  // retornarProposta(){
+  //   this.cartaService.retornaPropostaPorId(this.username).subscribe((data: any) => {
+  //     console.log(data)
+  //   })
+  // }
 
 }

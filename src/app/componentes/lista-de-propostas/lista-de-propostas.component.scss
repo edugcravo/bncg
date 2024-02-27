@@ -13,26 +13,41 @@
     justify-content: center;
 }
 
-.larguraId{
-    width: 60px;
+.tabela{
+        border-radius: 10px;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.larguraPin, .larguraUp, .larguraDelet{
-    width: 80px;
-}
 
-.larguraVenc{
-    width: 120px;
-}
+// .larguraEmi, .larguraFav{
+//     width: 200px !important;
+// }
 
-.larguraData, .larguraData, .larguraSubir, .larguraVal, .larguraValC{
+
+.larguraVal, .larguraPin{
     width: 100px;
 }
 
-.larguraEdit, .larguraCarta, .larguraCertif, .larguraStatus{
+.larguraVenc{
+    width: 115px;
+}
+
+.larguraStatus{
     width: 75px;
 }
 
+.larguraValC{
+    width: 96px;
+}
+
+.larguraData{
+    width: 140px;
+}
+
+.larguraDelet, .larguraEdit, .larguraCertif, .larguraCarta{
+    width: 78px;
+}
 
 .titulo{
     text-align: center;
@@ -44,3 +59,40 @@
 .tabela{
     width: 90%;
 }
+
+@media (max-width: 767px) {
+    /* Define o tamanho das colunas em dispositivos pequenos */
+    th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .larguraEmi, .larguraFav {
+        display: none;
+    }
+}
+
+@media (max-width: 1400px) {
+    /* Define o tamanho das colunas em dispositivos extra pequenos */
+    th, td {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+}
+
+::ng-deep nz-pagination{
+    display: flex !important;
+    justify-content: center !important;
+    padding: 15px !important;
+  }
+  
+
+ ::ng-deep nz-empty{
+    display: none !important;
+  }
+
+
+  tbody img{
+    width: 25px;
+  }
