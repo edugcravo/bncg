@@ -26,7 +26,7 @@ getToken() {
 }
 
 // Método para fazer a solicitação para o endpoint /login/users/me/username
-getUsername() {
+getUsername(): Observable<string> {
   const token = this.getToken();
   if (!token) {
     // Se não houver token, trate de acordo com a sua lógica
@@ -37,7 +37,7 @@ getUsername() {
     'Accept-Enconding': 'gzip',
     'Authorization': 'Bearer ' + token
   });
-  return this.http.get(this.url + '/login/users/me/username', { headers: headers });
+  return this.http.get<string>(this.url + '/login/users/me/username', { headers: headers });
 }
 
 

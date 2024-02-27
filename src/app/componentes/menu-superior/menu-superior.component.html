@@ -10,7 +10,7 @@
         <li><a (click)="scrollToService()" routerLink="/home" fragment="servicos" >Serviços</a></li>
         <li><a routerLink="/cadastro">Cadastro</a></li>
         <li><a (click)="scrollToContato()">Contato</a></li>
-        <button class="fale">Fale conosco</button>
+        <button class="fale" (click)="redirecionarParaWhatsapp()">Fale conosco</button>
         <a routerLink="/pin"><button class="conta">Minha conta</button></a>
         <mat-icon (click)="deslogar()" *ngIf="usuarioLogado" class="logout" [ngClass]="{'alterarCor': rota}">exit_to_app</mat-icon>
 

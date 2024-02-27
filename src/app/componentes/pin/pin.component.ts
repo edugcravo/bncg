@@ -7,6 +7,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { SharedService } from 'src/app/services/shared.service';
 import { CartaService } from 'src/app/services/carta.service';
 import { AuthService } from '../autentica/auth.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class PinComponent {
   admin: any = false;
   logado: any = false;
 
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router, private message: NzMessageService, private sharedService: SharedService, private cartaService: CartaService, private authService: AuthService ) { }
+  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router, private message: NzMessageService, private sharedService: SharedService, private cartaService: CartaService, private authService: AuthService, private sanitizer: DomSanitizer ) { }
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
@@ -57,7 +58,7 @@ export class PinComponent {
       this.loginService.login(this.formulario.value).then((data: any) => {
         if(data.access_token){
           this.authService.notifyLoginStatusChange(true);
-          this.username = data.username;
+          
           this.message.create('success','login efetuado com sucesso!');
           this.carregando = false;
           //resetar form
@@ -65,18 +66,21 @@ export class PinComponent {
           if(data.admin == true){
             this.sharedService.setAdminStatus(true);
             this.router.navigate(['/proposta']);
-          }else{
-            this.logado = true;
+          } else {
+            this.authService.getUsername().subscribe((data: any) => {
+              this.username = data.username;
+              this.logado = true;
+              this.retornarProposta(this.username)
+            });
+
+
           }
-          
-        }else{
+        } else {
           if(data.data == 401){
             this.carregando = false;
-              this.message.create('error','login ou senha incorretos!');
-
+            this.message.create('error','login ou senha incorretos!');
           }
         }
-
       })
     } else {
       // Marque os campos como tocados para exibir os erros
@@ -85,11 +89,13 @@ export class PinComponent {
     }
   }
 
+  pdfUrl!: SafeUrl;
   
-  // retornarProposta(){
-  //   this.cartaService.retornaPropostaPorId(this.username).subscribe((data: any) => {
-  //     console.log(data)
-  //   })
-  // }
+  retornarProposta(username: any){
+    this.cartaService.retornaPropostaPorId(username).subscribe((data: any) => {
+      console.log(data);
+      this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(data));
+    });
+  }
 
 }

@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { saveAs } from 'file-saver';
+import { Document, Packer } from 'docx';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +30,9 @@ headers = new HttpHeaders({
 
   retornaPropostaPorId(id: any){
     console.log(id)
-    return this.http.get(this.url + '/carta/carta-certificado/' + id, {responseType: 'blob'});
+    return this.http.get(`${this.url}/carta/carta-certificado?pin=${id}`, {responseType: 'blob'});
 }
+
+
+
 }

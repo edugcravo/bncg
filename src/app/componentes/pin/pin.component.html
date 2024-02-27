@@ -23,13 +23,11 @@
     </div>
 
     <div class="bloco_user" *ngIf="logado && !admin">
-      <h1 class="titulo">Bem vindo, user</h1>
-      <p>Seja bem vindo a sua conta, aqui você pode acessar todas as funcionalidades do sistema.</p>
+      <iframe [src]="pdfUrl" width="100%" height="600px"></iframe>
     </div>
 
   </div>
 </div>
 
-bo
 
 <app-rodape></app-rodape>

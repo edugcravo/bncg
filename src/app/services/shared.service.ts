@@ -17,7 +17,6 @@ constructor(private http: HttpClient) { }
     'Accept-Enconding': 'gzip'
   });
 
-  private userStatus = new Subject<boolean>();
 
   //verificar se o usuario é admin
 
