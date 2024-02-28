@@ -25,7 +25,10 @@ export class ContatoComponent implements OnInit {
     });
   }
 
+  enviando = false;
+
   enviar() {
+    this.enviando = true;
     if (this.formulario.valid) {
       this.contatoService.enviarEmail(this.formulario.value).subscribe((data: any) => {
       })
@@ -38,13 +41,14 @@ export class ContatoComponent implements OnInit {
           timer: 1500
         })
         //resetar form
-
+        this.enviando = false;
         this.formulario.reset();
        }
       })
     } else {
       // Marque os campos como tocados para exibir os erros
       this.formulario.markAllAsTouched();
+      this.enviando = false;
     }
   }
 

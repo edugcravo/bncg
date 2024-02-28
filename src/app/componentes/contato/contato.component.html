@@ -24,7 +24,8 @@
         <input type="text" placeholder="Assunto*" formControlName="assunto" [ngClass]="{'invalid-field': formulario.get('assunto')?.invalid && formulario.get('assunto')?.touched}">
         <textarea name="" id="" cols="20" rows="10" placeholder="Mensagem" class="mensagem" formControlName="mensagem" [ngClass]="{'invalid-field': formulario.get('mensagem')?.invalid && formulario.get('mensagem')?.touched}"></textarea>
 
-        <button (click)="enviar()">Enviar mensagem</button>
+        <button (click)="enviar()" *ngIf="!enviando">Enviar mensagem</button>
+        <button *ngIf="enviando">Enviando <nz-spin ></nz-spin></button>
       </form>
     </div>
   </div>
