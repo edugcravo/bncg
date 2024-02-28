@@ -23,11 +23,9 @@ export class ListaDePropostasComponent implements OnInit{
 
     listarPropostas(){
       this.cartaService.retornaCartas().subscribe((data: any) => {
-        console.log(data);
         this.proposta = data?.result;
 
         this.propostaPaginada = this.paginarDados(this.proposta, 1, this.pageSize)
-      console.log(data);
       });
     }
 
@@ -42,7 +40,6 @@ export class ListaDePropostasComponent implements OnInit{
   }
 
   onPageChange(pageIndex: number) {
-    console.log('proxima')
     this.currentPage = pageIndex;
     this.propostaPaginada = this.paginarDados(this.proposta, pageIndex, this.pageSize);
   }

@@ -15,12 +15,14 @@
     color: white;
     border-top: solid 1px #D8D8D8;
     height: calc(100vh - 221px);
+    // height: 100vh;
 }
+
 
 .bloco_logado{
   border-top: solid 1px #D8D8D8;
-    height: calc(100vh - 221px);
     background-color: #080C22;
+    height: 100vh;
 }
 
 .bloco_logado p{
@@ -78,4 +80,29 @@ form{
 
 .invalid-field {
   border-color: red !important;
+}
+
+
+.bloco_user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.conteudo_pdf{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.pdf{
+  width: 60%;
+}
+
+.escolha button{
+  margin-right: 20px;
+  margin-bottom: 20px;
 }

@@ -24,7 +24,6 @@ export class MenuSuperiorComponent implements OnInit {
   ngOnInit() {
     //verifica se ta logado
     this.authService.getLoginStatus().subscribe(logado => {
-      console.log(logado)
       this.usuarioLogado = logado;
     });
     this.verificaAdmin()
@@ -108,7 +107,6 @@ export class MenuSuperiorComponent implements OnInit {
 
   verificarQualRota(){
     if(this.router.url === '/cadastro'){
-      console.log('sim')
       this.rota = true;
     }
   }

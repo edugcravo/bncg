@@ -44,7 +44,6 @@ export class FavorecidoComponent implements OnInit {
     cep = cep.replace(/\-/g, '');
     this.formulario.controls['cep'].setValue(cep);
 
-    console.log(this.formulario.value);
 
     if (this.formulario.valid) {
       this.favorecidoService.cadastraFavorecido(this.formulario.value).subscribe((data: any) => {
@@ -76,7 +75,6 @@ export class FavorecidoComponent implements OnInit {
       this.favorecidos = data.result;
 
       this.favorecidoPaginado = this.paginarDados(this.favorecidos, 1, this.pageSize)
-      console.log(data);
     })
   }
 
@@ -84,7 +82,6 @@ export class FavorecidoComponent implements OnInit {
 
   retornaPorId(id: number){
     this.favorecidoService.retornaPorId(id).subscribe((data: any) => {
-      console.log(data)
       this.formulario.patchValue(data.result);
       this.editando = true;
       //deixar botao editando ao inves de cadastrar
@@ -95,7 +92,6 @@ export class FavorecidoComponent implements OnInit {
 
   editar(){
     this.favorecidoService.editaFavorecido(this.formulario.value).subscribe((data: any) => {
-      console.log(data)
       this.listarFavorecidos();
       this.editando = false;
       this.formulario.reset();

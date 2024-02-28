@@ -26,10 +26,8 @@ export class ContatoComponent implements OnInit {
   }
 
   enviar() {
-    console.log(this.formulario.value)
     if (this.formulario.valid) {
       this.contatoService.enviarEmail(this.formulario.value).subscribe((data: any) => {
-        console.log(data)
       })
       this.contatoService.enviarContato(this.formulario.value).subscribe((data: any) => {
        if(data.status == 200){

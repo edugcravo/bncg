@@ -23,6 +23,7 @@
     "@types/office-js": "^1.0.376",
     "docx": "^8.5.0",
     "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
     "ng-zorro-antd": "^16.2.2",
     "pdfjs-dist": "^4.0.379",
     "rxjs": "~7.8.0",

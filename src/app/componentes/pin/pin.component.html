@@ -23,7 +23,25 @@
     </div>
 
     <div class="bloco_user" *ngIf="logado && !admin">
-      <iframe [src]="pdfUrl" width="100%" height="600px"></iframe>
+
+      <div class="conteudo_pdf">
+
+        <h1>O que deseja visualizar?</h1>
+
+          <div class="escolha">
+            <button (click)="retornarProposta()">Carta fiança</button>
+            <button (click)="retornaCertificado()">Certificado</button>
+          </div>
+
+        <div class="pdf" *ngIf="escolhaTipo == 'proposta'">
+          <iframe [src]="pdfUrlCarta" width="100%" height="600px"></iframe>
+        </div>
+
+        <div class="pdf" *ngIf="escolhaTipo == 'certificado'">
+          <iframe [src]="pdfUrlCertificado" width="100%" height="600px"></iframe>
+        </div>
+      </div>
+
     </div>
 
   </div>

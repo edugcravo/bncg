@@ -23,9 +23,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.formulario.valid) {
-      console.log(this.formulario.value);
       this.loginService.login(this.formulario.value).then((data: any) => {
-        console.log(data);
         if(data.token){
           this.router.navigate(['/favorecido']);
         }else{

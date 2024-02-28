@@ -20,7 +20,6 @@ headers = new HttpHeaders({
 });
 
   enviaCarta(carta: any){
-    console.log(carta)
     return this.http.post(this.url + '/carta/cria', carta, {headers: this.headers})
   }
 
@@ -29,9 +28,12 @@ headers = new HttpHeaders({
   }
 
   retornaPropostaPorId(id: any){
-    console.log(id)
-    return this.http.get(`${this.url}/carta/carta-certificado?pin=${id}`, {responseType: 'blob'});
+    return this.http.get(`${this.url}/carta/carta-por-id?pin=${id}`, {responseType: 'blob'});
 }
+
+  retornaCertificadoPorId(id: any){
+    return this.http.get(`${this.url}/carta/certificado-por-id?pin=${id}`, {responseType: 'blob'});
+  }
 
 
 

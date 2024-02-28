@@ -47,11 +47,9 @@ export class EmitenteComponent implements OnInit{
     let numero = this.formulario.value.numero.toString();
     this.formulario.controls['numero'].setValue(numero);
 
-    console.log(this.formulario.value)
     this.carregando = true;
     if (this.formulario.valid) {
       this.emitenteService.cadastrarEmitente(this.formulario.value).subscribe((data: any) => {
-        console.log(data);
         if(data.data == 200){
           this.carregando = false;
           Swal.fire({
@@ -130,7 +128,6 @@ export class EmitenteComponent implements OnInit{
 
   retornaPorId(id: number){
     this.emitenteService.retornaPorId(id).subscribe((data: any) => {
-      console.log(data)
 
       // colocar pontos e traços no cpf ou cnpj
       if(data.result.cpf_cnpj.length <= 14){
@@ -162,7 +159,6 @@ export class EmitenteComponent implements OnInit{
     let cep = this.retiraPontos(this.formulario.value.cep);
     this.formulario.controls['cep'].setValue(cep);
     this.emitenteService.editaEmitente(this.formulario.value).subscribe((data: any) => {
-      console.log(data)
       Swal.fire({
         title: 'Emitente editado com sucesso!',
         icon: 'success',

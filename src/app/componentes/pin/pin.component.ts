@@ -33,15 +33,31 @@ export class PinComponent {
 
     
     this.authService.getLoginStatus().subscribe(logado => {
-      console.log(logado)
       this.logado = logado;
+      if(logado == false){
+          if(localStorage.getItem('token'))
+          this.authService.notifyLoginStatusChange(true);
+          {
+        }
+
+      }
+
+      this.authService.getUsername().subscribe((data: any) => {
+        this.username = data.username;
+        this.sharedService.setUsername(this.username);
+      });
     });
   
   }
 
   verificaAdmin(){
     this.sharedService.getAdminStatus().subscribe(admin => {
-      console.log(admin)
+      if(admin == true){
+        this.admin = true;
+      }else{
+        this.admin = false;
+      }
+
 
     });
   }
@@ -70,7 +86,7 @@ export class PinComponent {
             this.authService.getUsername().subscribe((data: any) => {
               this.username = data.username;
               this.logado = true;
-              this.retornarProposta(this.username)
+              this.sharedService.setUsername(this.username);
             });
 
 
@@ -89,13 +105,36 @@ export class PinComponent {
     }
   }
 
-  pdfUrl!: SafeUrl;
   
-  retornarProposta(username: any){
-    this.cartaService.retornaPropostaPorId(username).subscribe((data: any) => {
-      console.log(data);
-      this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(data));
+  pdfUrlCarta!: SafeUrl;
+  pdfUrlCertificado!: SafeUrl;
+
+  escolhaTipo: any = 'proposta';
+
+  retornarProposta(){
+    this.sharedService.getUsername().subscribe((data: any) => {
+      this.username = data;
+    })
+    this.escolhaTipo = 'proposta';
+    this.cartaService.retornaPropostaPorId(this.username).subscribe((data: any) => {
+
+      this.pdfUrlCarta = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(data));
     });
   }
+
+  retornaCertificado(){
+    this.sharedService.getUsername().subscribe((data: any) => {
+      this.username = data;
+    })
+    this.escolhaTipo = 'certificado';
+    this.cartaService.retornaCertificadoPorId(this.username).subscribe((data: any) => {
+      this.pdfUrlCertificado = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(data));
+    });
+  }
+
+  alteraTipo(tipo: any){
+    this.escolhaTipo = tipo;
+  }
+
 
 }

@@ -23,7 +23,6 @@ constructor(private http: HttpClient) { }
   private adminStatus: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   setAdminStatus(admin: boolean) {
-    console.log(admin)
     this.adminStatus.next(admin);
   }
 
@@ -31,5 +30,13 @@ constructor(private http: HttpClient) { }
     return this.adminStatus.asObservable();
   }
 
+  username: Subject<any> = new Subject<any>();
 
+  setUsername(username: any) {
+    this.username.next(username);
+  }
+
+  getUsername(): Observable<any> {
+    return this.username.asObservable();
+  }
 }

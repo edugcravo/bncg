@@ -35,10 +35,10 @@ export class PropostaComponent implements OnInit {
       senha: ['', Validators.required],
     });
 
-    // setTimeout(() => {
-    //   this.recebeEmitente()
-    //   this.recebeFavorecido()
-    // }, 1000);
+    setTimeout(() => {
+      this.recebeEmitente()
+      this.recebeFavorecido()
+    }, 1000);
 
   }
 
@@ -46,11 +46,9 @@ export class PropostaComponent implements OnInit {
 
   submitForm() {
     this.carregando = true;
-    console.log(this.formGroup.value);
     if (this.formGroup.valid) {
       // Lógica para enviar os dados do formulário
       this.cartaService.enviaCarta(this.formGroup.value).subscribe((data: any) => {
-        console.log(data);
         if(data.status == 200){
         Swal.fire({
           title: 'Proposta cadastrada com sucesso!',
@@ -79,7 +77,6 @@ export class PropostaComponent implements OnInit {
 
   recebeEmitente(){
     this.emitenteService.retornaEmitente().subscribe((data: any) => {
-      console.log(data)
       this.emitente = data?.result;
     })
   }
@@ -88,7 +85,6 @@ export class PropostaComponent implements OnInit {
 
   recebeFavorecido(){
     this.favorecidoService.retornaFavorecidos().subscribe((data: any) => {
-      console.log(data)
       this.favorecido = data?.result;
   })}
 }
