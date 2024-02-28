@@ -86,12 +86,12 @@ form{
 .bloco_user{
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100%;
 }
 
 .conteudo_pdf{
   width: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,10 +99,20 @@ form{
 
 
 .pdf{
-  width: 60%;
+  width: 100%;
 }
 
 .escolha button{
   margin-right: 20px;
   margin-bottom: 20px;
+}
+
+.deseja{
+  margin-bottom: 25px;
+}
+
+.pdf iframe {
+  margin: 0;
+  padding: 0;
+  border: none;
 }
