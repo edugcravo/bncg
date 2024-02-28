@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { saveAs } from 'file-saver';
 import { Document, Packer } from 'docx';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,14 +28,31 @@ headers = new HttpHeaders({
     return this.http.get(this.url + '/carta/lista', {headers: this.headers})
   }
 
+
+  // PROPOSTA-----------------------------
+
+  //retorna a carta fiança por id EM PDF
   retornaPropostaPorId(id: any){
     return this.http.get(`${this.url}/carta/carta-por-id?pin=${id}`, {responseType: 'blob'});
 }
 
+  //retorna a carta fiança por id em formato de IMAGEM
+  retornaPropostaPorIDemImagem(id: any, numero: number): Observable<Blob> {
+    return this.http.get(`${this.url}/carta/carta-por-id-imagem-${numero}?pin=${id}`, { responseType: 'blob' });
+  }
+
+
+
+  // CERTIFICADO -----------------------------
+
+  //retorna o certificado por id EM PDF
   retornaCertificadoPorId(id: any){
     return this.http.get(`${this.url}/carta/certificado-por-id?pin=${id}`, {responseType: 'blob'});
   }
 
-
+  //retorna o certificado por id em formato de IMAGEM
+  retornarCertificadoPorIDemImagem(id: any){
+    return this.http.get(`${this.url}/carta/certificado-por-id-imagem?pin=${id}`, {responseType: 'blob'});
+  }
 
 }

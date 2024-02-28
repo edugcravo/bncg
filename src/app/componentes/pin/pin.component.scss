@@ -99,7 +99,11 @@ form{
 
 
 .pdf{
-  width: 100%;
+  width: 82vh;
+}
+
+.pdf img{
+  height: 100%;
 }
 
 .escolha button{
@@ -109,10 +113,6 @@ form{
 
 .deseja{
   margin-bottom: 25px;
+  margin-top: 25px;
 }
 
-.pdf iframe {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
