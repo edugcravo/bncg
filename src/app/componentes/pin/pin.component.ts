@@ -37,20 +37,15 @@ export class PinComponent {
     
     this.authService.getLoginStatus().subscribe(logado => {
       this.logado = logado;
-      if(logado == false){
-          if(localStorage.getItem('token'))
-          this.authService.notifyLoginStatusChange(true);
-          {
-        }
-
-      }
-
         this.authService.getUsername().subscribe((data: any) => {
-          this.username = data.username;
-          this.sharedService.setUsername(this.username);
-  
+          console.log(data)
+          if(data.username){
+            this.logado = true;
+            this.username = data.username;
+            this.sharedService.setUsername(this.username);
+          }
         });
-      
+        
     });
   
   }
@@ -119,6 +114,7 @@ export class PinComponent {
 
   retornarProposta(){
     this.sharedService.getUsername().subscribe((data: any) => {
+      console.log(data)
       this.username = data;
     })
     this.escolhaTipo = 'proposta';

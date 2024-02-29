@@ -23,9 +23,17 @@ export class MenuSuperiorComponent implements OnInit {
 
   ngOnInit() {
     //verifica se ta logado
+
     this.authService.getLoginStatus().subscribe(logado => {
       this.usuarioLogado = logado;
+
+    this.authService.getUsername().subscribe((data: any) => {
+      console.log(data)
+      if(data.username){
+        this.usuarioLogado = true;
+      }
     });
+  })
     this.verificaAdmin()
     this.verificarQualRota()
   }
@@ -33,7 +41,10 @@ export class MenuSuperiorComponent implements OnInit {
 
 
   verificaAdmin(){
-    this.atualizaAdminStatus();
+    this.authService.getAdmin().subscribe((data: any) => {
+      console.log(data)
+      this.admin = data.admin;
+    })
   }
 
   scrollToContato() {
@@ -80,15 +91,6 @@ export class MenuSuperiorComponent implements OnInit {
 
   }
 
-  atualizaAdminStatus() {
-
-    if(localStorage.getItem('ad') == 'true'){
-      this.admin = true;
-    }else{
-      this.admin = false;
-    }
-    //passar pro pin que foi desdeslogado
-  }
 
   redirecionarParaWhatsapp() {
     // Número de telefone do WhatsApp (substitua pelo seu número)

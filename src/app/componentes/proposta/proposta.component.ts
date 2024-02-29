@@ -53,6 +53,7 @@ export class PropostaComponent implements OnInit {
     if (this.formGroup.valid) {
       // Lógica para enviar os dados do formulário
       this.cartaService.enviaCarta(this.formGroup.value).subscribe((data: any) => {
+        console.log(data)
         if(data.status == 200){
         Swal.fire({
           title: 'Proposta cadastrada com sucesso!',
@@ -73,6 +74,7 @@ export class PropostaComponent implements OnInit {
       });
     }else{
       this.formGroup.markAllAsTouched();
+      this.carregando = false;
     }
   }
 

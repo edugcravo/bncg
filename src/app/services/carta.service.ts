@@ -33,12 +33,12 @@ headers = new HttpHeaders({
 
   //retorna a carta fiança por id EM PDF
   retornaPropostaPorId(id: any){
-    return this.http.get(`${this.url}/carta/carta-por-id?pin=${id}`, {responseType: 'blob'});
+    return this.http.get(`${this.url}/carta/carta-por-id?pin=${id}`, {responseType: 'blob' ,headers: this.headers});
 }
 
   //retorna a carta fiança por id em formato de IMAGEM
   retornaPropostaPorIDemImagem(id: any, numero: number): Observable<Blob> {
-    return this.http.get(`${this.url}/carta/carta-por-id-imagem-${numero}?pin=${id}`, { responseType: 'blob' });
+    return this.http.get(`${this.url}/carta/carta-por-id-imagem-${numero}?pin=${id}`, {responseType: 'blob' ,headers: this.headers});
   }
 
 
@@ -47,12 +47,12 @@ headers = new HttpHeaders({
 
   //retorna o certificado por id EM PDF
   retornaCertificadoPorId(id: any){
-    return this.http.get(`${this.url}/carta/certificado-por-id?pin=${id}`, {responseType: 'blob'});
+    return this.http.get(`${this.url}/carta/certificado-por-id?pin=${id}`, {responseType: 'blob' ,headers: this.headers});
   }
 
   //retorna o certificado por id em formato de IMAGEM
   retornarCertificadoPorIDemImagem(id: any){
-    return this.http.get(`${this.url}/carta/certificado-por-id-imagem?pin=${id}`, {responseType: 'blob'});
+    return this.http.get(`${this.url}/carta/certificado-por-id-imagem?pin=${id}`, {responseType: 'blob' ,headers: this.headers});
   }
 
 
