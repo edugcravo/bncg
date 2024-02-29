@@ -129,22 +129,23 @@ export class EmitenteComponent implements OnInit{
   retornaPorId(id: number){
     this.emitenteService.retornaPorId(id).subscribe((data: any) => {
 
-      // colocar pontos e traços no cpf ou cnpj
-      if(data.result.cpf_cnpj.length <= 14){
-        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/(\d{3})(\d)/, '$1.$2');
-        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/(\d{3})(\d)/, '$1.$2');
-        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+      if(data.result.cpf_cnpj.length < 14){
+        console.log('if')
+        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{3})(\d)/, '$1.$2');
+        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d{1,2})$/, '$1.$2.$3-$4');
       } else {
-        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/(\d{2})(\d)/, '$1.$2');
-        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/(\d{3})(\d)/, '$1.$2');
-        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/(\d{3})(\d)/, '$1/$2');
-        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+        console.log('else')
+        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{2})(\d)/, '$1.$2');
+        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{2})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3/$4');
+        data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{2})\.(\d{3})\.(\d{3})\/(\d{4})(\d{1,2})$/, '$1.$2.$3/$4-$5');
       }
-
-      // colocar traços no cep
-      data.result.cep = data.result.cep.replace(/(\d{5})(\d)/, '$1-$2');
-
-      this.formulario.patchValue(data.result);
+        console.log(data.result.cpf_cnpj)
+        data.result.cep = data.result.cep.replace(/(\d{5})(\d)/, '$1-$2');
+  
+  
+        this.formulario.patchValue(data.result);
       this.editando = true;
 
     })

@@ -36,7 +36,7 @@
 
           <div class="valor">
             <label>Valor em R$:</label>
-            <input type="text" formControlName="valor" [ngClass]="{'invalid-field': formGroup.get('valor')?.invalid && formGroup.get('valor')?.touched}">
+            <input type="text" formControlName="valor" (input)="formatarValor($event)" [ngClass]="{'invalid-field': formGroup.get('valor')?.invalid && formGroup.get('valor')?.touched}">
           </div>
 
           <div class="extenso">
@@ -61,7 +61,7 @@
 
           <div class="valorCobrado">
             <label>Valor cobrado:</label>
-            <input type="text" formControlName="valorCobrado" [ngClass]="{'invalid-field': formGroup.get('valorCobrado')?.invalid && formGroup.get('valorCobrado')?.touched}">
+            <input type="text" formControlName="valorCobrado" (input)="formatarValor($event)" [ngClass]="{'invalid-field': formGroup.get('valorCobrado')?.invalid && formGroup.get('valorCobrado')?.touched}">
           </div>
 
           <div class="vencimento">

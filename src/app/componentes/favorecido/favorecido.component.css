@@ -95,6 +95,7 @@ th, td {
 
 
 .largura-celula{
+  cursor: pointer;
   width: 70px;
 }
 

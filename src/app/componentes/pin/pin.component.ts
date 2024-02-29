@@ -84,11 +84,10 @@ export class PinComponent implements OnInit {
           this.authService.notifyLoginStatusChange(true);
           this.message.create('success', 'login efetuado com sucesso!');
           this.carregando = false;
-          //resetar form
           this.formulario.reset();
           if (data.admin == true) {
             this.sharedService.setAdminStatus(true);
-            this.router.navigate(['/proposta']);
+            // this.router.navigate(['/pin']);
           } else {
             this.username = data.username;
             this.logado = true;

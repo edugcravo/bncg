@@ -23,9 +23,8 @@
 }
 
 .bloco_logado{
-    background-color: #ebebeb;
-    min-height: 100vh;
-    
+  border-top: solid 1px #D8D8D8;
+    background-color: #080C22;
 }
 
 .bloco_logado p{
@@ -37,7 +36,8 @@
     flex-direction: column;
     height: 100%;
     align-items: center;
-    justify-content: center;
+    background-color: #ebebeb;
+    min-height: calc(100vh - 222px);
 }
 
 h1{
@@ -92,7 +92,7 @@ form{
 .bloco_user{
   display: flex;
   justify-content: center;
-  height: 100%;
+  min-height: 100vh;
 }
 
 .conteudo_pdf{
@@ -124,6 +124,7 @@ form{
 .deseja{
   margin-bottom: 25px;
   margin-top: 25px;
+  color: white;
 }
 
 // media query

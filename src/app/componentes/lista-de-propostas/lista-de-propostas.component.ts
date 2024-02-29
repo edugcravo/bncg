@@ -25,8 +25,21 @@ export class ListaDePropostasComponent implements OnInit{
     propostaPaginada: any = [];
 
     listarPropostas(){
+
+      // formatar valor
+
       this.cartaService.retornaCartas().subscribe((data: any) => {
         this.proposta = data?.result;
+
+        for(let item of this.proposta){
+          item.valor = item.valor.replace(/\D/g, "");
+          item.valor = item.valor.replace(/(\d)(\d{2})$/, "$1,$2");
+          item.valor = item.valor.replace(/(?=(\d{3})+(\D))\B/g, ".");
+
+          item.valorCobrado = item.valorCobrado.replace(/\D/g, "");
+          item.valorCobrado = item.valorCobrado.replace(/(\d)(\d{2})$/, "$1,$2");
+          item.valorCobrado = item.valorCobrado.replace(/(?=(\d{3})+(\D))\B/g, ".");
+        }
 
         this.propostaPaginada = this.paginarDados(this.proposta, 1, this.pageSize)
       });

@@ -47,14 +47,6 @@ export class MenuSuperiorComponent implements OnInit {
     });
   }
 
-  scrollToService() {
-    this.router.navigate(['/home']).then(() => {
-      const contatoElement = document.getElementById('servicos');
-      if (contatoElement) {
-        contatoElement.scrollIntoView({ behavior: 'instant' });
-      }
-    });
-  }
 
   redirecionaHome() {
     this.router.navigate(['/home']);

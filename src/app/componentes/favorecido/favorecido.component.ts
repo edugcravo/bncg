@@ -72,6 +72,23 @@ export class FavorecidoComponent implements OnInit {
 
   listarFavorecidos(){
     this.favorecidoService.retornaFavorecidos().subscribe((data: any) => {
+      console.log(data)
+      for(let item of data.result){
+        console.log(item)
+        if(item.cpf_cnpj.length < 14){
+          console.log('if')
+          item.cpf_cnpj = item.cpf_cnpj.replace(/^(\d{3})(\d)/, '$1.$2');
+          item.cpf_cnpj = item.cpf_cnpj.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+          item.cpf_cnpj = item.cpf_cnpj.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d{1,2})$/, '$1.$2.$3-$4');
+        } else {
+          console.log('else')
+          item.cpf_cnpj = item.cpf_cnpj.replace(/^(\d{2})(\d)/, '$1.$2');
+          item.cpf_cnpj = item.cpf_cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+          item.cpf_cnpj = item.cpf_cnpj.replace(/^(\d{2})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3/$4');
+          item.cpf_cnpj = item.cpf_cnpj.replace(/^(\d{2})\.(\d{3})\.(\d{3})\/(\d{4})(\d{1,2})$/, '$1.$2.$3/$4-$5');
+        }
+      }
+
       this.favorecidos = data.result;
 
       this.favorecidoPaginado = this.paginarDados(this.favorecidos, 1, this.pageSize)
@@ -81,7 +98,29 @@ export class FavorecidoComponent implements OnInit {
   editando: any = false;
 
   retornaPorId(id: number){
+
+    
+
     this.favorecidoService.retornaPorId(id).subscribe((data: any) => {
+      console.log(data.result.cpf_cnpj)
+     // colocar pontos e traços no cpf ou cnpj
+     console.log(data.result.cpf_cnpj.length)
+     if(data.result.cpf_cnpj.length < 14){
+      console.log('if')
+      data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{3})(\d)/, '$1.$2');
+      data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+      data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d{1,2})$/, '$1.$2.$3-$4');
+    } else {
+      console.log('else')
+      data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{2})(\d)/, '$1.$2');
+      data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+      data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{2})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3/$4');
+      data.result.cpf_cnpj = data.result.cpf_cnpj.replace(/^(\d{2})\.(\d{3})\.(\d{3})\/(\d{4})(\d{1,2})$/, '$1.$2.$3/$4-$5');
+    }
+      console.log(data.result.cpf_cnpj)
+      data.result.cep = data.result.cep.replace(/(\d{5})(\d)/, '$1-$2');
+
+
       this.formulario.patchValue(data.result);
       this.editando = true;
       //deixar botao editando ao inves de cadastrar
@@ -91,10 +130,30 @@ export class FavorecidoComponent implements OnInit {
   }
 
   editar(){
+
+     //retirar pontos e traços do cpf ou cnpj
+     let cpf_cnpj = this.formulario.value.cpf_cnpj;
+     cpf_cnpj = cpf_cnpj.replace(/\./g, '');
+     cpf_cnpj = cpf_cnpj.replace(/\-/g, '');
+     cpf_cnpj = cpf_cnpj.replace(/\//g, '');
+     this.formulario.controls['cpf_cnpj'].setValue(cpf_cnpj);
+ 
+     //retirar traços do cep
+     let cep = this.formulario.value.cep;
+     cep = cep.replace(/\-/g, '');
+     this.formulario.controls['cep'].setValue(cep);
+
     this.favorecidoService.editaFavorecido(this.formulario.value).subscribe((data: any) => {
       this.listarFavorecidos();
       this.editando = false;
       this.formulario.reset();
+
+      Swal.fire({
+        title: 'Favorecido editado com sucesso!',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1500
+      })
 
     })
   }
