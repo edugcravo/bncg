@@ -23,11 +23,18 @@ export class MenuSuperiorComponent implements OnInit {
 
   checkLoginStatus() {
     this.authService.getLoginStatus().subscribe(logado => {
+      console.log(logado)
       this.usuarioLogado = logado;
+      this.authService.getUsername().subscribe((data: any) => {
+        console.log(data);
+        this.usuarioLogado = true;
+      });
+
     });
   }
 
   verificaAdmin() {
+    this.admin = false;
     this.authService.getAdmin().subscribe((data: any) => {
       console.log(data);
       this.admin = data.admin;

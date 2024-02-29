@@ -41,26 +41,31 @@ export class PinComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.verificaAdmin();
+    this.checkLoginStatus();
+
     this.formulario = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
 
-    this.verificaAdmin();
-    this.checkLoginStatus();
+
   }
 
   checkLoginStatus() {
     this.authService.getLoginStatus().subscribe(logado => {
+      console.log(logado)
       this.logado = logado;
-      if (logado) {
+
+        console.log(logado)
         this.authService.getUsername().subscribe((data: any) => {
           console.log(data);
           this.logado = true;
           this.username = data.username;
           this.sharedService.setUsername(this.username);
         });
-      }
+      
     });
   }
 
