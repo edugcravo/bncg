@@ -36,7 +36,6 @@ export class UsuariosComponent implements OnInit {
     this.usuarioService.retornaUsuarios().subscribe((data: any) => {
       this.todosUsuarios = data.result;
       this.nomeAtual = this.todosUsuarios[0].username
-      console.log(this.todosUsuarios[0].username)
       this.usuarioForm = this.fb.group({
         username: [this.todosUsuarios[0].username],
         email: [this.todosUsuarios[0].email],
@@ -47,14 +46,12 @@ export class UsuariosComponent implements OnInit {
   nomeAtual: any;
 
   novoForm(data: any){
-    console.log(data)
     this.nomeAtual = data.username
     this.usuarioForm = this.fb.group({
       username: [data.username],
       email: [data.email],
     });
 
-    console.log(this.nomeAtual)
   }
 
 

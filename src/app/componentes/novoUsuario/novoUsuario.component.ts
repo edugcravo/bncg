@@ -31,9 +31,7 @@ export class NovoUsuarioComponent implements OnInit {
 
 
   enviaDadosUsuario(){
-    console.log(this.usuarioForm.value)
     this.usuarioService.criaUsuario(this.usuarioForm.value).subscribe((dados: any) =>{
-      console.log(dados)
 
 
       if (!dados.data) {

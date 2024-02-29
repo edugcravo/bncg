@@ -86,7 +86,6 @@ export class ListaDePropostasComponent implements OnInit{
     }).then((result) => {
       if (result.isConfirmed) {
         this.cartaService.excluirCartaPorId(id).subscribe((data: any) => {
-          console.log(data)
           this.listarPropostas();
         });
       }

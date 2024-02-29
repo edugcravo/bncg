@@ -55,12 +55,9 @@ export class PinComponent implements OnInit {
 
   checkLoginStatus() {
     this.authService.getLoginStatus().subscribe(logado => {
-      console.log(logado)
       this.logado = logado;
 
-        console.log(logado)
         this.authService.getUsername().subscribe((data: any) => {
-          console.log(data);
           this.logado = true;
           this.username = data.username;
           this.sharedService.setUsername(this.username);
@@ -70,12 +67,10 @@ export class PinComponent implements OnInit {
   }
 
   verificaAdmin() {
-    console.log('verificando admin');
     this.sharedService.getAdminStatus().subscribe(admin => {
     });
 
     this.authService.getAdmin().subscribe((data: any) => {
-      console.log(data.admin);
       this.admin = data.admin;
       this.sharedService.setAdminStatus(this.admin);
     });
@@ -114,7 +109,6 @@ export class PinComponent implements OnInit {
   }
 
   retornarProposta() {
-    console.log(this.username);
     this.escolhaTipo = 'proposta';
     this.cartaService.retornaPropostaPorId(this.username).subscribe((data: any) => {
       this.pdfUrlCarta = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(data));

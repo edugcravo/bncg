@@ -44,7 +44,6 @@ constructor(private http: HttpClient) { }
   proposta: any;
 
   setProposta(proposta: any) {
-    console.log(proposta)
     this.proposta = proposta;
   }
 

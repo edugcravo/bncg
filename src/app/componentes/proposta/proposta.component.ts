@@ -49,11 +49,9 @@ export class PropostaComponent implements OnInit {
 
   submitForm() {
     this.carregando = true;
-    console.log(this.formGroup.value)
     if (this.formGroup.valid) {
       // Lógica para enviar os dados do formulário
       this.cartaService.enviaCarta(this.formGroup.value).subscribe((data: any) => {
-        console.log(data)
         if(data.status == 200){
         Swal.fire({
           title: 'Proposta cadastrada com sucesso!',
