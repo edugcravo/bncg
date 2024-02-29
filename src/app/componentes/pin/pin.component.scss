@@ -18,15 +18,18 @@
     // height: 100vh;
 }
 
+.conteudo h1{
+  color: white;
+}
 
 .bloco_logado{
-  border-top: solid 1px #D8D8D8;
-    background-color: #080C22;
+    background-color: #ebebeb;
     min-height: 100vh;
+    
 }
 
 .bloco_logado p{
-  color: white;
+  color: black;
 }
 
 .bloco_admin{
@@ -39,7 +42,7 @@
 
 h1{
     font-size: 40px;
-    color: #FFFFFF;
+    color: #000000;
 }
 
 input{
@@ -62,7 +65,9 @@ button{
     line-height: 16px;
 }
 
+
 .titulo{
+  font-size: 40px;
   font-weight: 300;
   margin-top: 60px;
 }
@@ -135,7 +140,8 @@ form{
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: white;
 }
 
 /* Estilos para o título dos blocos */
@@ -153,7 +159,7 @@ form{
 /* Estilos para os botões dos blocos */
 .bloco button {
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: #C8AE7B;
   color: white;
   border: none;
   border-radius: 3px;
@@ -161,7 +167,7 @@ form{
 }
 
 .bloco button:hover {
-  background-color: #0056b3;
+  background-color: #af9560;
 }
 
 .desc{
@@ -178,5 +184,5 @@ form{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 20px;
+  gap: 30px;
 }

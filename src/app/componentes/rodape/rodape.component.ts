@@ -13,6 +13,13 @@ export class RodapeComponent implements OnInit {
   ngOnInit() {
   }
 
+  redirecionarParaWhatsapp() {
+    const numeroWhatsapp = '5541999999999';
+    const mensagem = 'Olá, gostaria de saber mais sobre os serviços da empresa';
+    const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+  }
+
   scrollTo(rota: any) {
     this.router.navigate(['/home']).then(() => {
       const contatoElement = document.getElementById(rota);
