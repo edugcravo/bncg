@@ -25,6 +25,7 @@ headers = new HttpHeaders({
   }
 
   retornaCartas(){
+    console.log(localStorage.getItem('token'))
     return this.http.get(this.url + '/carta/lista', {headers: this.headers})
   }
 

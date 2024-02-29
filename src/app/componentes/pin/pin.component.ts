@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
@@ -12,19 +12,33 @@ import { MatDialog } from '@angular/material/dialog';
 import { UsuariosComponent } from '../usuarios/usuarios.component';
 import { NovoUsuarioComponent } from '../novoUsuario/novoUsuario.component';
 
-
 @Component({
   selector: 'app-pin',
   templateUrl: './pin.component.html',
   styleUrls: ['./pin.component.scss']
 })
-export class PinComponent {
+export class PinComponent implements OnInit {
 
   formulario!: FormGroup;
   admin: any = false;
   logado: any = false;
+  username: any;
+  carregando: boolean = false;
+  pdfUrlCarta!: SafeUrl;
+  pdfUrlCertificado!: SafeUrl;
+  escolhaTipo: any = 'proposta';
 
-  constructor(private formBuilder: FormBuilder,public dialog: MatDialog, private loginService: LoginService, private router: Router, private message: NzMessageService, private sharedService: SharedService, private cartaService: CartaService, private authService: AuthService, private sanitizer: DomSanitizer ) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog,
+    private loginService: LoginService,
+    private router: Router,
+    private message: NzMessageService,
+    private sharedService: SharedService,
+    private cartaService: CartaService,
+    private authService: AuthService,
+    private sanitizer: DomSanitizer
+  ) { }
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
@@ -32,73 +46,61 @@ export class PinComponent {
       password: ['', Validators.required]
     });
 
-    this.verificaAdmin()
-
-    
-    this.authService.getLoginStatus().subscribe(logado => {
-      this.logado = logado;
-        this.authService.getUsername().subscribe((data: any) => {
-          console.log(data)
-          if(data.username){
-            this.logado = true;
-            this.username = data.username;
-            this.sharedService.setUsername(this.username);
-          }
-        });
-        
-    });
-  
+    this.verificaAdmin();
+    this.checkLoginStatus();
   }
 
-  verificaAdmin(){
-   
-    console.log('verificando admin')
+  checkLoginStatus() {
+    this.authService.getLoginStatus().subscribe(logado => {
+      this.logado = logado;
+      if (logado) {
+        this.authService.getUsername().subscribe((data: any) => {
+          console.log(data);
+          this.logado = true;
+          this.username = data.username;
+          this.sharedService.setUsername(this.username);
+        });
+      }
+    });
+  }
+
+  verificaAdmin() {
+    console.log('verificando admin');
     this.sharedService.getAdminStatus().subscribe(admin => {
     });
 
     this.authService.getAdmin().subscribe((data: any) => {
-      console.log(data.admin)
+      console.log(data.admin);
       this.admin = data.admin;
       this.sharedService.setAdminStatus(this.admin);
-    })
+    });
   }
-
-
-
-  carregando: boolean = false;
-  username: any;
-
 
   onSubmit() {
     this.carregando = true;
     if (this.formulario.valid) {
       this.loginService.login(this.formulario.value).then((data: any) => {
-        if(data.access_token){
+        if (data.access_token) {
           this.authService.notifyLoginStatusChange(true);
-          
-          this.message.create('success','login efetuado com sucesso!');
+          this.message.create('success', 'login efetuado com sucesso!');
           this.carregando = false;
           //resetar form
           this.formulario.reset();
-          if(data.admin == true){
+          if (data.admin == true) {
             this.sharedService.setAdminStatus(true);
             this.router.navigate(['/proposta']);
           } else {
-            this.authService.getUsername().subscribe((data: any) => {
-              this.username = data.username;
-              this.logado = true;
-              this.sharedService.setUsername(this.username);
-            });
-
-
+            this.username = data.username;
+            this.logado = true;
+            this.sharedService.setUsername(this.username);
           }
         } else {
-          if(data.data == 401){
+          if (data.data == 401) {
             this.carregando = false;
-            this.message.create('error','login ou senha incorretos!');
+            this.message.create('error', 'login ou senha incorretos!');
           }
         }
-      })
+      });
     } else {
       // Marque os campos como tocados para exibir os erros
       this.formulario.markAllAsTouched();
@@ -106,38 +108,24 @@ export class PinComponent {
     }
   }
 
-  
-  pdfUrlCarta!: SafeUrl;
-  pdfUrlCertificado!: SafeUrl;
-
-  escolhaTipo: any = 'proposta';
-
-  retornarProposta(){
-    this.sharedService.getUsername().subscribe((data: any) => {
-      console.log(data)
-      this.username = data;
-    })
+  retornarProposta() {
+    console.log(this.username);
     this.escolhaTipo = 'proposta';
     this.cartaService.retornaPropostaPorId(this.username).subscribe((data: any) => {
-
       this.pdfUrlCarta = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(data));
     });
   }
 
-  retornaCertificado(){
-    this.sharedService.getUsername().subscribe((data: any) => {
-      this.username = data;
-    })
+  retornaCertificado() {
     this.escolhaTipo = 'certificado';
     this.cartaService.retornaCertificadoPorId(this.username).subscribe((data: any) => {
       this.pdfUrlCertificado = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(data));
     });
   }
 
-  alteraTipo(tipo: any){
+  alteraTipo(tipo: any) {
     this.escolhaTipo = tipo;
   }
-
 
   openDialogUser() {
     this.dialog.open(UsuariosComponent, {
@@ -146,10 +134,9 @@ export class PinComponent {
   }
 
   openDialogNovoUser(): void {
-    const dialogUser = this.dialog.open(NovoUsuarioComponent, {
+    this.dialog.open(NovoUsuarioComponent, {
       width: '450px',
     });
-
   }
 
 }
