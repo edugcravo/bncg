@@ -12,6 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
+        console.log(error)
         if (error.status === 401) {
           this.router.navigate(['/pin']); // Redireciona para a página de login
         }

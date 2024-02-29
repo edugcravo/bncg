@@ -39,4 +39,16 @@ constructor(private http: HttpClient) { }
   getUsername(): Observable<any> {
     return this.username.asObservable();
   }
+
+
+  proposta: any;
+
+  setProposta(proposta: any) {
+    console.log(proposta)
+    this.proposta = proposta;
+  }
+
+  getProposta() {
+    return this.proposta;
+  }
 }

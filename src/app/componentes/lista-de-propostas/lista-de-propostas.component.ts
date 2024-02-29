@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartaService } from 'src/app/services/carta.service';
+import { SharedService } from 'src/app/services/shared.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-lista-de-propostas',
@@ -8,7 +11,7 @@ import { CartaService } from 'src/app/services/carta.service';
 })
 export class ListaDePropostasComponent implements OnInit{
 
-    constructor(private cartaService: CartaService) { 
+    constructor(private cartaService: CartaService, private sharedService: SharedService, private router: Router) { 
 
     }
 
@@ -68,5 +71,26 @@ export class ListaDePropostasComponent implements OnInit{
   onPageChange(pageIndex: number) {
     this.currentPage = pageIndex;
     this.propostaPaginada = this.paginarDados(this.proposta, pageIndex, this.pageSize);
+  }
+
+  excluirCarta(id: any){
+    Swal.fire({
+      title: 'Tem certeza que deseja excluir essa proposta?',
+      showDenyButton: true,
+      confirmButtonText: `Sim`,
+      denyButtonText: `Não`,
+      customClass: {
+        confirmButton: "botao-sair",
+        denyButton: "botao-cancelar"
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cartaService.excluirCartaPorId(id).subscribe((data: any) => {
+          console.log(data)
+          this.listarPropostas();
+        });
+      }
+    
+    })
   }
 }

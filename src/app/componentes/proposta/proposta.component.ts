@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CartaService } from 'src/app/services/carta.service';
 import { EmitenteService } from 'src/app/services/emitente.service';
 import { FavorecidoService } from 'src/app/services/favorecido.service';
+import { SharedService } from 'src/app/services/shared.service';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -14,9 +15,11 @@ export class PropostaComponent implements OnInit {
 
   formGroup!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private cartaService: CartaService, private emitenteService: EmitenteService, private favorecidoService: FavorecidoService) { }
+  constructor(private formBuilder: FormBuilder, private cartaService: CartaService, private emitenteService: EmitenteService, private favorecidoService: FavorecidoService, private sharedService: SharedService) { }
 
   ngOnInit() {
+
+
     this.formGroup = this.formBuilder.group({
       emitente: ['', Validators.required],
       favorecido: ['', Validators.required],
@@ -46,6 +49,7 @@ export class PropostaComponent implements OnInit {
 
   submitForm() {
     this.carregando = true;
+    console.log(this.formGroup.value)
     if (this.formGroup.valid) {
       // Lógica para enviar os dados do formulário
       this.cartaService.enviaCarta(this.formGroup.value).subscribe((data: any) => {

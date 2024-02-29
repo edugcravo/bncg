@@ -17,7 +17,6 @@
                         <th class="larguraData">Data de Emissão</th>
                         <th class="larguraCarta">Carta</th>
                         <th class="larguraCertif">Certif.</th>
-                        <th class="larguraEdit">Editar</th>
                         <th class="larguraDelet">Deletar</th>                    
                     </tr>
                 </thead>
@@ -26,15 +25,14 @@
                         <td class="larguraEmi">{{ item.emitente }}</td>
                         <td class="larguraFav">{{ item.favorecido }}</td>
                         <td>{{ item.numeroDocumento }}</td>
-                        <td>{{ item.valor }}</td>
-                        <td class="larguraValC">{{ item.valorCobrado }}</td>
+                        <td>R${{ item.valor }}</td>
+                        <td class="larguraValC">R${{ item.valorCobrado }}</td>
                         <td class="larguraVenc">{{ item.vencimento }}</td>
                         <td>{{ item.statusPagamento }}</td>
                         <td class="larguraData">{{ item.dataEmissao }}</td>
                         <td class="largura-celula" (click)="retornarPropostaPorId(item.numeroDocumento)"><img src="assets/imagens/cartas.png" alt=""></td>
                         <td class="largura-celula" (click)="retornaCertificadoPorId(item.numeroDocumento)"><img src="assets/imagens/certificado.png" alt=""></td>
-                        <td class="larguraEdit"><img src="assets/imagens/editar-texto.png" alt=""></td>
-                        <td class="larguraDelet"><img src="assets/imagens/editar-texto.png" alt=""></td>
+                        <td class="larguraDelet"><img src="assets/imagens/remover.png" alt="" (click)="excluirCarta(item.numeroDocumento)"></td>
                     </tr>
                 </tbody>
                 </nz-table>

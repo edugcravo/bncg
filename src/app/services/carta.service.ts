@@ -55,4 +55,11 @@ headers = new HttpHeaders({
     return this.http.get(`${this.url}/carta/certificado-por-id-imagem?pin=${id}`, {responseType: 'blob'});
   }
 
+
+
+  // Excluir carta fiança por id -----------------
+
+  excluirCartaPorId(id: any){
+    return this.http.delete(`${this.url}/carta/excluir?pin=${id}`, {headers: this.headers})
+  }
 }
