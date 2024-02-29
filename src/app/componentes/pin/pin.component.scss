@@ -22,7 +22,7 @@
 .bloco_logado{
   border-top: solid 1px #D8D8D8;
     background-color: #080C22;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .bloco_logado p{
@@ -64,6 +64,7 @@ button{
 
 .titulo{
   font-weight: 300;
+  margin-top: 60px;
 }
 
 @media (max-width: 1015px) {
@@ -99,7 +100,7 @@ form{
 
 
 .pdf{
-  width: 82vh;
+  width: 80vh;
 }
 
 .pdf img{
@@ -108,7 +109,11 @@ form{
 
 .escolha button{
   margin-right: 20px;
-  margin-bottom: 20px;
+}
+
+.escolha{
+  margin-bottom: 30px;
+  display: flex;
 }
 
 .deseja{
@@ -116,3 +121,55 @@ form{
   margin-top: 25px;
 }
 
+// media query
+@media (max-width: 800px) {
+  .pdf{
+    width: unset;
+  }
+
+}
+
+
+/* Estilos para os blocos */
+.bloco {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para o título dos blocos */
+.bloco h1 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Estilos para o texto dos blocos */
+.bloco p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Estilos para os botões dos blocos */
+.bloco button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.bloco button:hover {
+  background-color: #0056b3;
+}
+
+.desc{
+  margin-bottom: 80px;
+}
+
+.botoes{
+  display: flex;
+    justify-content: space-around;
+}

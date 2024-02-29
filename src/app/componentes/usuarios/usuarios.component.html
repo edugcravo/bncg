@@ -1,0 +1,42 @@
+<div class="topo">
+  <h1>USUÁRIOS</h1>
+  <img src="../../../assets/imagens/sair_modal.png" alt="" mat-dialog-close>
+</div>
+
+<form
+  id="new-collection-form-container"
+  [formGroup]="usuarioForm"
+>
+
+<div class="container">
+  <div class="bloco_esquerda">
+
+    <div class="grupos">
+      <p *ngFor="let item of todosUsuarios" (click)="novoForm(item)" [ngClass]="{'selected': item.username == nomeAtual}">{{item.username}}</p>
+
+    </div>
+
+    <div class="novo_esquerda" (click)="openDialogNovoUser()"> <img src="assets/imagens/add.png" alt=""> NOVO USUÁRIO</div>
+
+  </div>
+
+  <div class="bloco_direita">
+
+    <div class="titulo">
+      <p>NOME</p>
+      <input type="text" placeholder="Nome" formControlName="username">
+    </div>
+
+    <div class="titulo">
+      <p>E-MAIL</p>
+      <input type="text" placeholder="Nome" formControlName="email">
+    </div>
+
+
+  </div>
+
+
+</div>
+
+</form>
+

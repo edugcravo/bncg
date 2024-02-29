@@ -38,9 +38,24 @@ getUsername(): Observable<string> {
     'Authorization': 'Bearer ' + token
   });
   return this.http.get<string>(this.url + '/login/users/me/username', { headers: headers });
+  
 }
 
-
+// metodo para ver se usuario é adm
+getAdmin(): Observable<boolean> {
+  const token = this.getToken();
+  if (!token) {
+    // Se não houver token, trate de acordo com a sua lógica
+    return throwError('Token não encontrado');
+  }
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Accept-Enconding': 'gzip',
+    'Authorization': 'Bearer ' + token
+  });
+  return this.http.get<boolean>(this.url + '/login/users/me/admin', { headers: headers });
+  
+}
 
 isLoggedIn(): boolean {
   // Verifica se o token JWT está presente no localStorage e se é adm pelo local storage

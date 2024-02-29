@@ -1,0 +1,35 @@
+<div class="topo">
+  <h1>CADASTRAR USUÁRIOS</h1>
+  <img src="../../../assets/imagens/sair_modal.png" alt="" mat-dialog-close>
+</div>
+
+<form [formGroup]="usuarioForm" (ngSubmit)="enviaDadosUsuario()">
+    <div class="username">
+        <label>username : </label>
+        <input type="text" formControlName="username" name="username" required>
+    </div>
+
+    <div class="email">
+        <label>email : </label>
+        <input type="email" formControlName="email" name="email" required>
+    </div>
+
+    <div class="senha">
+        <label>senha : </label>
+        <input type="password" formControlName="password" name="password" required>
+    </div>
+
+    <div class="admin">
+        <label>admin : </label>
+        <select name="" id="" formControlName="admin">
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+        </select>
+    </div>
+
+
+
+    <div class="enviar">
+        <button type="submit">ENVIAR</button>
+    </div>
+</form>

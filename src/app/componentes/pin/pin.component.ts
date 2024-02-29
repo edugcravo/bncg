@@ -8,6 +8,9 @@ import { SharedService } from 'src/app/services/shared.service';
 import { CartaService } from 'src/app/services/carta.service';
 import { AuthService } from '../autentica/auth.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { MatDialog } from '@angular/material/dialog';
+import { UsuariosComponent } from '../usuarios/usuarios.component';
+import { NovoUsuarioComponent } from '../novoUsuario/novoUsuario.component';
 
 
 @Component({
@@ -21,7 +24,7 @@ export class PinComponent {
   admin: any = false;
   logado: any = false;
 
-  constructor(private formBuilder: FormBuilder, private loginService: LoginService, private router: Router, private message: NzMessageService, private sharedService: SharedService, private cartaService: CartaService, private authService: AuthService, private sanitizer: DomSanitizer ) { }
+  constructor(private formBuilder: FormBuilder,public dialog: MatDialog, private loginService: LoginService, private router: Router, private message: NzMessageService, private sharedService: SharedService, private cartaService: CartaService, private authService: AuthService, private sanitizer: DomSanitizer ) { }
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
@@ -42,24 +45,27 @@ export class PinComponent {
 
       }
 
-      this.authService.getUsername().subscribe((data: any) => {
-        this.username = data.username;
-        this.sharedService.setUsername(this.username);
-      });
+        this.authService.getUsername().subscribe((data: any) => {
+          this.username = data.username;
+          this.sharedService.setUsername(this.username);
+  
+        });
+      
     });
   
   }
 
   verificaAdmin(){
+   
+    console.log('verificando admin')
     this.sharedService.getAdminStatus().subscribe(admin => {
-      if(admin == true){
-        this.admin = true;
-      }else{
-        this.admin = false;
-      }
-
-
     });
+
+    this.authService.getAdmin().subscribe((data: any) => {
+      console.log(data.admin)
+      this.admin = data.admin;
+      this.sharedService.setAdminStatus(this.admin);
+    })
   }
 
 
@@ -136,5 +142,18 @@ export class PinComponent {
     this.escolhaTipo = tipo;
   }
 
+
+  openDialogUser() {
+    this.dialog.open(UsuariosComponent, {
+      width: '600px',
+    });
+  }
+
+  openDialogNovoUser(): void {
+    const dialogUser = this.dialog.open(NovoUsuarioComponent, {
+      width: '450px',
+    });
+
+  }
 
 }

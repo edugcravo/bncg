@@ -1,0 +1,43 @@
+.topo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 30px 0px 30px;
+    margin-bottom: 20px;
+}
+
+.topo h1{
+   font-size: 28px;
+}
+
+.username, .email, .senha, .admin{
+    display: flex;
+    width: 55%;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.email, .senha, .admin{
+    margin-bottom: 20px;
+}
+
+input, select{
+    border: 1px solid #BFBFBF;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.enviar button{
+    background-color: #080C22;
+    color: white;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.enviar{
+    display: flex;
+    justify-content: flex-end;
+}

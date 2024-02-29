@@ -18,7 +18,27 @@
   <div class="bloco_logado" *ngIf="logado">
     <div class="bloco_admin" *ngIf="logado && admin">
       <h1 class="titulo">Bem vindo, admin</h1>
-      <p>Seja bem vindo a sua conta, aqui você pode acessar todas as funcionalidades do sistema.</p>
+      <p class="desc">Seja bem vindo a sua conta, aqui você pode acessar todas as funcionalidades do sistema.</p>
+
+     
+      <div class="bloco bloco_esquerda">
+        <h1>Propostas</h1>
+        <p>Visualize todas as propostas cadastradas no sistema.</p>
+        <button routerLink="/lista-de-propostas">Visualizar</button>
+      </div>
+      
+      <div class="bloco bloco_centro">
+        <h1>Usuários</h1>
+        <p>Visualize todos os usuários cadastrados no sistema.</p>
+        <div class="botoes">
+          <button (click)="openDialogUser()">Visualizar</button>
+          <button (click)="openDialogNovoUser()">Cadastrar</button>
+        </div>
+
+      </div>
+      
+
+
 
     </div>
 

@@ -32,6 +32,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { ListaDePropostasComponent } from './componentes/lista-de-propostas/lista-de-propostas.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
+import { NovoUsuarioComponent } from './componentes/novoUsuario/novoUsuario.component';
 
 registerLocaleData(en);
 
@@ -49,6 +52,8 @@ registerLocaleData(en);
     PinComponent,
     EmitenteComponent,
     ListaDePropostasComponent,
+    UsuariosComponent,
+    NovoUsuarioComponent
 
   ],
   imports: [
@@ -65,7 +70,8 @@ registerLocaleData(en);
     NzPaginationModule,
     MatMenuModule,
     MatIconModule,
-    NzDrawerModule
+    NzDrawerModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

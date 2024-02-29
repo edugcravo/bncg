@@ -31,8 +31,8 @@
                         <td class="larguraVenc">{{ item.vencimento }}</td>
                         <td>{{ item.statusPagamento }}</td>
                         <td class="larguraData">{{ item.dataEmissao }}</td>
-                        <td class="largura-celula"><img src="assets/imagens/cartas.png" alt=""></td>
-                        <td class="largura-celula"><img src="assets/imagens/certificado.png" alt=""></td>
+                        <td class="largura-celula" (click)="retornarPropostaPorId(item.numeroDocumento)"><img src="assets/imagens/cartas.png" alt=""></td>
+                        <td class="largura-celula" (click)="retornaCertificadoPorId(item.numeroDocumento)"><img src="assets/imagens/certificado.png" alt=""></td>
                         <td class="larguraEdit"><img src="assets/imagens/editar-texto.png" alt=""></td>
                         <td class="larguraDelet"><img src="assets/imagens/editar-texto.png" alt=""></td>
                     </tr>

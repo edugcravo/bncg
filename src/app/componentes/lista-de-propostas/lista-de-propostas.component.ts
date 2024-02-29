@@ -29,6 +29,32 @@ export class ListaDePropostasComponent implements OnInit{
       });
     }
 
+    retornarPropostaPorId(id: any){
+      // mandar os dados e baixar arquivo
+      this.cartaService.retornaPropostaPorId(id).subscribe((data: any) => {
+        const blob = new Blob([data], { type: 'application/pdf' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Carta fiança.pdf'; // Nome que o arquivo terá ao ser baixado
+        a.click();
+        window.URL.revokeObjectURL(url);
+      });
+    }
+
+    retornaCertificadoPorId(id: any){
+      // mandar os dados e baixar arquivo
+      this.cartaService.retornaCertificadoPorId(id).subscribe((data: any) => {
+        const blob = new Blob([data], { type: 'application/pdf' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Certificado.pdf'; // Nome que o arquivo terá ao ser baixado
+        a.click();
+        window.URL.revokeObjectURL(url);
+      });
+    }
+
     currentPage = 1;
     pageSize = 5;
 
