@@ -25,6 +25,7 @@ headers = new HttpHeaders({
   }
 
   retornaCartas(){
+    this.headers = new HttpHeaders({}).set('Authorization', 'Bearer ' + localStorage.getItem('token'));
     return this.http.get(this.url + '/carta/lista', {headers: this.headers})
   }
 
