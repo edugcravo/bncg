@@ -75,6 +75,10 @@
     .larguraEmi, .larguraFav {
         display: none;
     }
+
+    .larguraVal, .larguraPin{
+        width: 95px;
+    }
 }
 
 @media (max-width: 1400px) {
@@ -84,6 +88,9 @@
         padding: 5px;
     }
 
+    .larguraVal, .larguraPin{
+        width: 95px;
+    }
 }
 
 ::ng-deep nz-pagination{

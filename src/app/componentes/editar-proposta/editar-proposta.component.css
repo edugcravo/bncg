@@ -1,0 +1,102 @@
+.container {
+
+    max-width: unset;
+    background-color: #ebebeb;
+  }
+
+  .titulo h1{
+    font-size: 28px;
+  }
+
+  .conteudo {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .bloco_conteudo{
+    max-width: 750px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  label {
+    font-weight: bolder;
+    color: #333;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  button {
+    grid-column: span 2; /* Ocupa duas colunas */
+    padding: 10px;
+    background-color: #C8AE7B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button:hover {
+    background-color: #af9560;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 14px;
+  }
+
+  .success-message {
+    color: green;
+    font-size: 14px;
+  }
+
+  .invalid-field {
+    border-color: red !important;
+  }
+
+
+  @media (max-width: 600px) {
+    form {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+.spin{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+}

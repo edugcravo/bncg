@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CartaService } from 'src/app/services/carta.service';
 import { SharedService } from 'src/app/services/shared.service';
 import Swal from 'sweetalert2'
+import { PropostaComponent } from '../proposta/proposta.component';
+import { EditarPropostaComponent } from '../editar-proposta/editar-proposta.component';
 
 @Component({
   selector: 'app-lista-de-propostas',
@@ -11,13 +14,13 @@ import Swal from 'sweetalert2'
 })
 export class ListaDePropostasComponent implements OnInit{
 
-    constructor(private cartaService: CartaService, private sharedService: SharedService, private router: Router) { 
+    constructor(private cartaService: CartaService, private sharedService: SharedService, private router: Router, public dialog: MatDialog,) { 
 
     }
 
     ngOnInit() {
       this.listarPropostas();
-
+      
 
     }
 
@@ -105,4 +108,12 @@ export class ListaDePropostasComponent implements OnInit{
     
     })
   }
+
+
+  editarProposta(item: any){
+    console.log(item)
+    this.sharedService.setProposta(item);
+      this.dialog.open(EditarPropostaComponent, {
+      });
+    }
 }

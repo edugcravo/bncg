@@ -29,6 +29,10 @@ headers = new HttpHeaders({
     return this.http.get(this.url + '/carta/lista', {headers: this.headers})
   }
 
+  editaCarta(carta: any){
+    return this.http.put(this.url + '/carta/atualizar', carta, {headers: this.headers})
+  }
+
 
   // PROPOSTA-----------------------------
 

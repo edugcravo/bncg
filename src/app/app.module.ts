@@ -35,6 +35,8 @@ import { ListaDePropostasComponent } from './componentes/lista-de-propostas/list
 import {MatDialogModule} from '@angular/material/dialog';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { NovoUsuarioComponent } from './componentes/novoUsuario/novoUsuario.component';
+import { EditarPropostaComponent } from './componentes/editar-proposta/editar-proposta.component';
+
 
 registerLocaleData(en);
 
@@ -53,7 +55,8 @@ registerLocaleData(en);
     EmitenteComponent,
     ListaDePropostasComponent,
     UsuariosComponent,
-    NovoUsuarioComponent
+    NovoUsuarioComponent,
+    EditarPropostaComponent
 
   ],
   imports: [

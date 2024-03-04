@@ -17,6 +17,7 @@
                         <th class="larguraData">Data de Emissão</th>
                         <th class="larguraCarta">Carta</th>
                         <th class="larguraCertif">Certif.</th>
+                        <th class="larguraCertif">Editar</th>
                         <th class="larguraDelet">Deletar</th>                    
                     </tr>
                 </thead>
@@ -32,6 +33,7 @@
                         <td class="larguraData">{{ item.dataEmissao }}</td>
                         <td class="largura-celula" (click)="retornarPropostaPorId(item.numeroDocumento)"><img src="assets/imagens/cartas.png" alt="icon carta fiança"></td>
                         <td class="largura-celula" (click)="retornaCertificadoPorId(item.numeroDocumento)"><img src="assets/imagens/certificado.png" alt="icon certificado"></td>
+                        <td class="largura-celula" (click)="editarProposta(item)"><img src="assets/imagens/editar.png" alt="editar documento"></td>
                         <td class="larguraDelet"><img src="assets/imagens/remover.png" alt="excluir documento" (click)="excluirCarta(item.numeroDocumento)"></td>
                     </tr>
                 </tbody>
