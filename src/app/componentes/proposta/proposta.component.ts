@@ -49,22 +49,23 @@ export class PropostaComponent implements OnInit {
 
   submitForm() {
 
+    //formatar valor
+    //tirar tudo
+    let valor = this.formGroup.value.valor;
+    valor = valor.replace(/\D/g, "");
+    valor = valor.replace(/(\d)(\d{2})$/, "$1,$2");
+    valor = valor.replace(/(?=(\d{3})+(\D))\B/g, ".");
+    this.formGroup.controls['valor'].setValue(valor);
 
+
+
+    console.log(this.formGroup.value)
     this.carregando = true;
     if (this.formGroup.valid) {
-      let valor = this.formGroup.value.valor;
-      valor = valor.replaceAll(/\./g, ''); // Remove os pontos
-      valor = valor.replaceAll(/\,/g, ''); // Remove as vírgulas
-      this.formGroup.controls['valor'].setValue(valor);
-  
-      // retirar pontos e virgulas do valorCobrado
-      let valorCobrado = this.formGroup.value.valorCobrado;
-      valorCobrado = valorCobrado.replaceAll(/\./g, '');
-      valorCobrado = valorCobrado.replaceAll(/\,/g, '');
-      this.formGroup.controls['valorCobrado'].setValue(valorCobrado);
 
       // Lógica para enviar os dados do formulário
       this.cartaService.enviaCarta(this.formGroup.value).subscribe((data: any) => {
+        console.log(data)
         if(data.status == 200){
         Swal.fire({
           title: 'Proposta cadastrada com sucesso!',
