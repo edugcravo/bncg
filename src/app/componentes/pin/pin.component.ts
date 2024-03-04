@@ -87,6 +87,7 @@ export class PinComponent implements OnInit {
           this.formulario.reset();
           if (data.admin == true) {
             this.sharedService.setAdminStatus(true);
+            this.admin = true;
             // this.router.navigate(['/pin']);
           } else {
             this.username = data.username;
