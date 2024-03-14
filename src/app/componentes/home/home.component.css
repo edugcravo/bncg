@@ -164,9 +164,12 @@
     background-position: center;
     background-size: cover;
     color: white;
-    font-size: 18px;
+    font-size: 36px;
     font-weight: 700;
-    line-height: 25px;
+    line-height: 42px;
+    text-align: center;
+
+    
 }
 
 .blocos{
@@ -190,7 +193,7 @@
     background-position: center;
     background-size: cover;
     color: white;
-    font-size: 18px;
+    font-size: 21px;
     font-weight: 700;
     line-height: 25px;
 }
@@ -204,7 +207,7 @@
     background-position: center;
     background-size: cover;
     color: white;
-    font-size: 18px;
+    font-size: 21px;
     font-weight: 700;
     line-height: 25px;
 }
@@ -218,7 +221,7 @@
     background-position: center;
     background-size: cover;
     color: white;
-    font-size: 18px;
+    font-size: 21px;
     font-weight: 700;
     line-height: 25px;
 }
@@ -232,7 +235,7 @@
     background-position: center;
     background-size: cover;
     color: white;
-    font-size: 18px;
+    font-size: 21px;
     font-weight: 700;
     line-height: 25px;
 }
